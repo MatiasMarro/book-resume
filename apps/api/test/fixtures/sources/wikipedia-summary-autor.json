@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Antoine de Saint-Exupéry",
+  "displaytitle": "<span lang=\"es\" dir=\"ltr\"><span class=\"mw-page-title-main\">Antoine de Saint-Exupéry</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q2908",
+  "titles": {
+    "canonical": "Antoine_de_Saint-Exupéry",
+    "normalized": "Antoine de Saint-Exupéry",
+    "display": "<span lang=\"es\" dir=\"ltr\"><span class=\"mw-page-title-main\">Antoine de Saint-Exupéry</span></span>"
+  },
+  "pageid": 35679,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Antoine_de_Saint-Euxpery_%281920%29.jpg/330px-Antoine_de_Saint-Euxpery_%281920%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 445
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/7/72/Antoine_de_Saint-Euxpery_%281920%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "width": 1200,
+    "height": 1617
+  },
+  "lang": "es",
+  "dir": "ltr",
+  "revision": "174450736",
+  "tid": "357d09d6-83b2-11f1-afc9-61ee16c151b4",
+  "timestamp": "2026-07-19T20:41:25Z",
+  "description": "escritor y aviador francés",
+  "description_source": "central",
+  "content_urls": {
+    "desktop": {
+      "page": "https://es.wikipedia.org/wiki/Antoine_de_Saint-Exup%C3%A9ry",
+      "revisions": "https://es.wikipedia.org/wiki/Antoine_de_Saint-Exup%C3%A9ry?action=history",
+      "edit": "https://es.wikipedia.org/wiki/Antoine_de_Saint-Exup%C3%A9ry?action=edit",
+      "talk": "https://es.wikipedia.org/wiki/Discusi%C3%B3n:Antoine_de_Saint-Exup%C3%A9ry"
+    },
+    "mobile": {
+      "page": "https://es.wikipedia.org/wiki/Antoine_de_Saint-Exup%C3%A9ry",
+      "revisions": "https://es.wikipedia.org/wiki/Special:History/Antoine_de_Saint-Exup%C3%A9ry",
+      "edit": "https://es.wikipedia.org/wiki/Antoine_de_Saint-Exup%C3%A9ry?action=edit",
+      "talk": "https://es.wikipedia.org/wiki/Discusi%C3%B3n:Antoine_de_Saint-Exup%C3%A9ry"
+    }
+  },
+  "extract": "Antoine Marie Jean-Baptiste Roger, conde de Saint-Exupéry, conocido como Antoine de Saint-Exupéry, fue un aviador y escritor francés, autor de la famosa obra El principito.",
+  "extract_html": "<p><b>Antoine Marie Jean-Baptiste Roger</b>, <b>conde de Saint-Exupéry</b>, conocido como <b>Antoine de Saint-Exupéry</b>, fue un aviador y escritor francés, autor de la famosa obra <i>El principito</i>.</p>"
+}

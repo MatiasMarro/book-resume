@@ -1,0 +1,353 @@
+{
+  "ISBN:9788498381498": {
+    "url": "http://openlibrary.org/books/OL26357785M/El_Principito",
+    "key": "/books/OL26357785M",
+    "title": "El Principito",
+    "authors": [
+      {
+        "url": "http://openlibrary.org/authors/OL31901A/Antoine_de_Saint-Exupéry",
+        "name": "Antoine de Saint-Exupéry"
+      }
+    ],
+    "number_of_pages": 93,
+    "identifiers": {
+      "bcid": [
+        "14656186"
+      ],
+      "isbn_10": [
+        "8498381495"
+      ],
+      "isbn_13": [
+        "9788498381498",
+        "9789876373487"
+      ],
+      "oclc": [
+        "971828881"
+      ],
+      "openlibrary": [
+        "OL26357785M"
+      ]
+    },
+    "publishers": [
+      {
+        "name": "Salamandra"
+      }
+    ],
+    "publish_places": [
+      {
+        "name": "Barcelona, Spain"
+      }
+    ],
+    "publish_date": "2010",
+    "subjects": [
+      {
+        "name": "adventure",
+        "url": "https://openlibrary.org/subjects/adventure"
+      },
+      {
+        "name": "fantasy",
+        "url": "https://openlibrary.org/subjects/fantasy"
+      },
+      {
+        "name": "friendship",
+        "url": "https://openlibrary.org/subjects/friendship"
+      },
+      {
+        "name": "love",
+        "url": "https://openlibrary.org/subjects/love"
+      },
+      {
+        "name": "childhood",
+        "url": "https://openlibrary.org/subjects/childhood"
+      },
+      {
+        "name": "loss",
+        "url": "https://openlibrary.org/subjects/loss"
+      },
+      {
+        "name": "loneliness",
+        "url": "https://openlibrary.org/subjects/loneliness"
+      },
+      {
+        "name": "Children's fiction",
+        "url": "https://openlibrary.org/subjects/children's_fiction"
+      },
+      {
+        "name": "Friendship, fiction",
+        "url": "https://openlibrary.org/subjects/friendship,_fiction"
+      },
+      {
+        "name": "Fantasy fiction",
+        "url": "https://openlibrary.org/subjects/fantasy_fiction"
+      },
+      {
+        "name": "Princes, fiction",
+        "url": "https://openlibrary.org/subjects/princes,_fiction"
+      },
+      {
+        "name": "Fairy tales",
+        "url": "https://openlibrary.org/subjects/fairy_tales"
+      },
+      {
+        "name": "Adventure and adventurers, fiction",
+        "url": "https://openlibrary.org/subjects/adventure_and_adventurers,_fiction"
+      },
+      {
+        "name": "Princes",
+        "url": "https://openlibrary.org/subjects/princes"
+      },
+      {
+        "name": "Fiction",
+        "url": "https://openlibrary.org/subjects/fiction"
+      },
+      {
+        "name": "Toy and movable books",
+        "url": "https://openlibrary.org/subjects/toy_and_movable_books"
+      },
+      {
+        "name": "Continental european fiction (fictional works by one author)",
+        "url": "https://openlibrary.org/subjects/continental_european_fiction_(fictional_works_by_one_author)"
+      },
+      {
+        "name": "French language, readers",
+        "url": "https://openlibrary.org/subjects/french_language,_readers"
+      },
+      {
+        "name": "Romans, nouvelles",
+        "url": "https://openlibrary.org/subjects/romans,_nouvelles"
+      },
+      {
+        "name": "Travel, fiction",
+        "url": "https://openlibrary.org/subjects/travel,_fiction"
+      },
+      {
+        "name": "Juvenile fiction",
+        "url": "https://openlibrary.org/subjects/juvenile_fiction"
+      },
+      {
+        "name": "Children's stories, French",
+        "url": "https://openlibrary.org/subjects/children's_stories,_french"
+      },
+      {
+        "name": "Pride and vanity",
+        "url": "https://openlibrary.org/subjects/pride_and_vanity"
+      },
+      {
+        "name": "Asteroids",
+        "url": "https://openlibrary.org/subjects/asteroids"
+      },
+      {
+        "name": "Conduct of life",
+        "url": "https://openlibrary.org/subjects/conduct_of_life"
+      },
+      {
+        "name": "Fantasmes",
+        "url": "https://openlibrary.org/subjects/fantasmes"
+      },
+      {
+        "name": "Romans, nouvelles, etc. pour la jeunesse",
+        "url": "https://openlibrary.org/subjects/romans,_nouvelles,_etc._pour_la_jeunesse"
+      },
+      {
+        "name": "Príncipes",
+        "url": "https://openlibrary.org/subjects/príncipes"
+      },
+      {
+        "name": "Novela juvenil",
+        "url": "https://openlibrary.org/subjects/novela_juvenil"
+      },
+      {
+        "name": "Fiction, general",
+        "url": "https://openlibrary.org/subjects/fiction,_general"
+      },
+      {
+        "name": "Philosophy",
+        "url": "https://openlibrary.org/subjects/philosophy"
+      },
+      {
+        "name": "Princes -- Juvenile fiction",
+        "url": "https://openlibrary.org/subjects/princes_--_juvenile_fiction"
+      },
+      {
+        "name": "Air pilots -- Juvenile fiction",
+        "url": "https://openlibrary.org/subjects/air_pilots_--_juvenile_fiction"
+      },
+      {
+        "name": "Friendship -- Juvenile fiction",
+        "url": "https://openlibrary.org/subjects/friendship_--_juvenile_fiction"
+      },
+      {
+        "name": "Princes -- Romans, nouvelles, etc. pour la jeunesse",
+        "url": "https://openlibrary.org/subjects/princes_--_romans,_nouvelles,_etc._pour_la_jeunesse"
+      },
+      {
+        "name": "Pilotes d'aéronef -- Romans, nouvelles, etc. pour la jeunesse",
+        "url": "https://openlibrary.org/subjects/pilotes_d'aéronef_--_romans,_nouvelles,_etc._pour_la_jeunesse"
+      },
+      {
+        "name": "Pilotos aéreos -- Novela juvenil",
+        "url": "https://openlibrary.org/subjects/pilotos_aéreos_--_novela_juvenil"
+      },
+      {
+        "name": "Príncipes -- Novela juvenil",
+        "url": "https://openlibrary.org/subjects/príncipes_--_novela_juvenil"
+      },
+      {
+        "name": "Cuentos de hadas",
+        "url": "https://openlibrary.org/subjects/cuentos_de_hadas"
+      },
+      {
+        "name": "Air pilots",
+        "url": "https://openlibrary.org/subjects/air_pilots"
+      },
+      {
+        "name": "Novela fantástica",
+        "url": "https://openlibrary.org/subjects/novela_fantástica"
+      },
+      {
+        "name": "Deaf children",
+        "url": "https://openlibrary.org/subjects/deaf_children"
+      },
+      {
+        "name": "Juvenile",
+        "url": "https://openlibrary.org/subjects/juvenile"
+      },
+      {
+        "name": "Legends",
+        "url": "https://openlibrary.org/subjects/legends"
+      },
+      {
+        "name": "Foxes",
+        "url": "https://openlibrary.org/subjects/foxes"
+      },
+      {
+        "name": "Deserts",
+        "url": "https://openlibrary.org/subjects/deserts"
+      },
+      {
+        "name": "Children's literature, french",
+        "url": "https://openlibrary.org/subjects/children's_literature,_french"
+      },
+      {
+        "name": "Translations into english",
+        "url": "https://openlibrary.org/subjects/translations_into_english"
+      },
+      {
+        "name": "Short novel",
+        "url": "https://openlibrary.org/subjects/short_novel"
+      },
+      {
+        "name": "Allegories",
+        "url": "https://openlibrary.org/subjects/allegories"
+      },
+      {
+        "name": "Extraterrestrial beings",
+        "url": "https://openlibrary.org/subjects/extraterrestrial_beings"
+      },
+      {
+        "name": "Juvenile films",
+        "url": "https://openlibrary.org/subjects/juvenile_films"
+      },
+      {
+        "name": "Drama",
+        "url": "https://openlibrary.org/subjects/drama"
+      },
+      {
+        "name": "Planets",
+        "url": "https://openlibrary.org/subjects/planets"
+      },
+      {
+        "name": "Fantastic fiction",
+        "url": "https://openlibrary.org/subjects/fantastic_fiction"
+      },
+      {
+        "name": "General",
+        "url": "https://openlibrary.org/subjects/general"
+      },
+      {
+        "name": "Fiction - general",
+        "url": "https://openlibrary.org/subjects/fiction_-_general"
+      },
+      {
+        "name": "New york times bestseller",
+        "url": "https://openlibrary.org/subjects/new_york_times_bestseller"
+      },
+      {
+        "name": "French Fantasy fiction",
+        "url": "https://openlibrary.org/subjects/french_fantasy_fiction"
+      },
+      {
+        "name": "French language",
+        "url": "https://openlibrary.org/subjects/french_language"
+      },
+      {
+        "name": "Translations into Russian",
+        "url": "https://openlibrary.org/subjects/translations_into_russian"
+      },
+      {
+        "name": "Translations into Yiddish",
+        "url": "https://openlibrary.org/subjects/translations_into_yiddish"
+      },
+      {
+        "name": "Translations into German",
+        "url": "https://openlibrary.org/subjects/translations_into_german"
+      },
+      {
+        "name": "Translations into Turkish",
+        "url": "https://openlibrary.org/subjects/translations_into_turkish"
+      },
+      {
+        "name": "Children's stories, Turkish",
+        "url": "https://openlibrary.org/subjects/children's_stories,_turkish"
+      },
+      {
+        "name": "Pop-up books",
+        "url": "https://openlibrary.org/subjects/pop-up_books"
+      },
+      {
+        "name": "French fiction",
+        "url": "https://openlibrary.org/subjects/french_fiction"
+      }
+    ],
+    "subject_places": [
+      {
+        "name": "Sahara Desert",
+        "url": "https://openlibrary.org/subjects/place:sahara_desert"
+      }
+    ],
+    "excerpts": [
+      {
+        "text": "Les grandes personnes ne comprennent jamais rien toutes seules, et c'est fatiguant, pour les enfants, de toujours et toujours leur donner des explications.\r\n\r\nGrown-ups never understand anything by themselves, and it is tiresome for children to be always and forever explaining things to them.",
+        "comment": "most famous passage"
+      }
+    ],
+    "notes": "Con acuarelas originales del autor",
+    "links": [
+      {
+        "title": "Wikipedia (Français)",
+        "url": "https://fr.wikipedia.org/wiki/Le_Petit_Prince"
+      },
+      {
+        "title": "Wikipedia (English)",
+        "url": "https://en.wikipedia.org/wiki/The_Little_Prince"
+      },
+      {
+        "title": "El Principito",
+        "url": "https://love-books-review.com/es/el-principito/"
+      },
+      {
+        "title": "Der kleine Prinz von Antoine de Saint Exupery (Love Books Review)",
+        "url": "https://love-books-review.com/de/der-kleine-prinz-antoine-de-saint-exupery/"
+      },
+      {
+        "title": "PDF",
+        "url": "https://chesserresources.com/doc/the-little-prince-by-antoine-de-saint-exupery/"
+      }
+    ],
+    "cover": {
+      "small": "https://covers.openlibrary.org/b/id/8042224-S.jpg",
+      "medium": "https://covers.openlibrary.org/b/id/8042224-M.jpg",
+      "large": "https://covers.openlibrary.org/b/id/8042224-L.jpg"
+    }
+  }
+}

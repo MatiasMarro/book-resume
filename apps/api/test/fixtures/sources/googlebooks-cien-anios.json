@@ -1,0 +1,35 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 1,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "3uhKDwAAQBAJ",
+      "etag": "0lRZmNPGWlM",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/3uhKDwAAQBAJ",
+      "volumeInfo": {
+        "title": "Cien años de soledad",
+        "authors": ["Gabriel García Márquez"],
+        "publisher": "Debolsillo",
+        "publishedDate": "2017-05-25",
+        "description": "El relato de la fundación, desarrollo y decadencia de Macondo, el pueblo levantado en medio de la ciénaga por José Arcadio Buendía y su mujer Úrsula Iguarán. A lo largo de siete generaciones, la estirpe de los Buendía carga con una soledad que ninguno de sus miembros logra romper. García Márquez levanta un mundo donde lo prodigioso convive con lo cotidiano sin que nadie se sorprenda.",
+        "industryIdentifiers": [
+          { "type": "ISBN_13", "identifier": "9788420471839" },
+          { "type": "ISBN_10", "identifier": "8420471836" }
+        ],
+        "pageCount": 496,
+        "categories": ["Fiction / Literary", "Fiction / Magical Realism"],
+        "averageRating": 4.5,
+        "ratingsCount": 312,
+        "maturityRating": "NOT_MATURE",
+        "language": "es",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=3uhKDwAAQBAJ&printsec=frontcover&img=1&zoom=5",
+          "thumbnail": "http://books.google.com/books/content?id=3uhKDwAAQBAJ&printsec=frontcover&img=1&zoom=1"
+        },
+        "previewLink": "http://books.google.com/books?id=3uhKDwAAQBAJ",
+        "infoLink": "https://play.google.com/store/books/details?id=3uhKDwAAQBAJ"
+      }
+    }
+  ]
+}

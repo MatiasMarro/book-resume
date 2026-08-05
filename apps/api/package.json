@@ -1,0 +1,27 @@
+{
+  "name": "@lector/api",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "db:create": "wrangler d1 create lector-db",
+    "db:migrate:local": "wrangler d1 migrations apply lector-db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply lector-db --remote"
+  },
+  "dependencies": {
+    "@lector/shared": "*",
+    "hono": "^4.13.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260804.1",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10",
+    "wrangler": "~4.86.0"
+  }
+}

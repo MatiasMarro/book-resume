@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "El código Da Vinci (película)",
+  "displaytitle": "<span lang=\"es\" dir=\"ltr\"><span class=\"mw-page-title-main\">El código Da Vinci (película)</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q160560",
+  "titles": {
+    "canonical": "El_código_Da_Vinci_(película)",
+    "normalized": "El código Da Vinci (película)",
+    "display": "<span lang=\"es\" dir=\"ltr\"><span class=\"mw-page-title-main\">El código Da Vinci (película)</span></span>"
+  },
+  "pageid": 170628,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/T%C3%ADtulo_de_El_c%C3%B3digo_Da_Vinci.png/330px-T%C3%ADtulo_de_El_c%C3%B3digo_Da_Vinci.png?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 186
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/ac/T%C3%ADtulo_de_El_c%C3%B3digo_Da_Vinci.png?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "width": 967,
+    "height": 544
+  },
+  "lang": "es",
+  "dir": "ltr",
+  "revision": "174462124",
+  "tid": "5bec852c-8446-11f1-81e0-12b01b71a08a",
+  "timestamp": "2026-07-20T14:21:55Z",
+  "description": "película de 2006 dirigida por Ron Howard",
+  "description_source": "central",
+  "content_urls": {
+    "desktop": {
+      "page": "https://es.wikipedia.org/wiki/El_c%C3%B3digo_Da_Vinci_(pel%C3%ADcula)",
+      "revisions": "https://es.wikipedia.org/wiki/El_c%C3%B3digo_Da_Vinci_(pel%C3%ADcula)?action=history",
+      "edit": "https://es.wikipedia.org/wiki/El_c%C3%B3digo_Da_Vinci_(pel%C3%ADcula)?action=edit",
+      "talk": "https://es.wikipedia.org/wiki/Discusi%C3%B3n:El_c%C3%B3digo_Da_Vinci_(pel%C3%ADcula)"
+    },
+    "mobile": {
+      "page": "https://es.wikipedia.org/wiki/El_c%C3%B3digo_Da_Vinci_(pel%C3%ADcula)",
+      "revisions": "https://es.wikipedia.org/wiki/Special:History/El_c%C3%B3digo_Da_Vinci_(pel%C3%ADcula)",
+      "edit": "https://es.wikipedia.org/wiki/El_c%C3%B3digo_Da_Vinci_(pel%C3%ADcula)?action=edit",
+      "talk": "https://es.wikipedia.org/wiki/Discusi%C3%B3n:El_c%C3%B3digo_Da_Vinci_(pel%C3%ADcula)"
+    }
+  },
+  "extract": "El código Da Vinci es una película de misterio y suspenso de 2006 dirigida por Ron Howard, escrita por Akiva Goldsman y basada en la novela homónima de Dan Brown, publicada en 2003. Es la primera película de la serie sobre Robert Langdon y cuenta con la participación de Tom Hanks, Audrey Tautou, Ian McKellen, Alfred Molina, Jürgen Prochnow, Jean Reno y Paul Bettany. En la trama, Robert Langdon, un profesor de simbología religiosa de la Universidad de Harvard, es el principal sospechoso del asesinato macabro y extraño del conservador del Museo del Louvre, Jacques Saunière. Sobre el cadáver, la policía encuentra un inquietante cifrado y comienza una investigación. Langdon escapa con la ayuda de la criptóloga policial Sophie Neveu, y ambos inician una búsqueda del legendario Santo Grial. Sir Leigh Teabing, un reconocido historiador británico del Grial, les revela que el verdadero Santo Grial está explícitamente codificado en el mural de Leonardo da Vinci La última cena. También en busca del Grial se encuentra una secta secreta dentro de Opus Dei, una prelatura real de la Santa Sede, que desea mantener el verdadero Grial en secreto para evitar la destrucción del cristianismo.",
+  "extract_html": "<p><i><b>El código Da Vinci</b></i> es una película de misterio y suspenso de 2006 dirigida por Ron Howard, escrita por Akiva Goldsman y basada en la novela homónima de Dan Brown, publicada en 2003. Es la primera película de la serie sobre Robert Langdon y cuenta con la participación de Tom Hanks, Audrey Tautou, Ian McKellen, Alfred Molina, Jürgen Prochnow, Jean Reno y Paul Bettany. En la trama, Robert Langdon, un profesor de simbología religiosa de la Universidad de Harvard, es el principal sospechoso del asesinato macabro y extraño del conservador del Museo del Louvre, Jacques Saunière. Sobre el cadáver, la policía encuentra un inquietante cifrado y comienza una investigación. Langdon escapa con la ayuda de la criptóloga policial Sophie Neveu, y ambos inician una búsqueda del legendario Santo Grial. Sir Leigh Teabing, un reconocido historiador británico del Grial, les revela que el verdadero Santo Grial está explícitamente codificado en el mural de Leonardo da Vinci <i>La última cena</i>. También en busca del Grial se encuentra una secta secreta dentro de Opus Dei, una prelatura real de la Santa Sede, que desea mantener el verdadero Grial en secreto para evitar la destrucción del cristianismo.</p>"
+}

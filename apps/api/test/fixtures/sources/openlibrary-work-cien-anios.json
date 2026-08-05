@@ -1,0 +1,161 @@
+{
+  "description": "*Cien años de soledad* es una novela del escritor colombiano Gabriel García Márquez, ganador del Premio Nobel de Literatura en 1982. Es considerada una obra maestra de la literatura hispanoamericana y universal, cumbre del denominado \"realismo mágico\". Es asimismo una de las obras más traducidas y leídas en español. Narra la historia de la familia Buendía a lo largo de siete generaciones en el pueblo ficticio de Macondo.\r\n\r\n\r\n----------\r\n\r\n\r\n*Cien años de soledad* is considered the best work of García Márquez. A novel that narrates the vicisitudes of Aureliano Buendía in the mythic Macondo, a town in some unknown region of Colombia. This novel was written in the magic realism (\"realismo mágico\"), a style that mix together amazing elements taken by fiction and reality.",
+  "title": "Cien años de soledad",
+  "subject_times": [
+    "Unknown",
+    "20th century"
+  ],
+  "covers": [
+    12627383,
+    8314483,
+    2292915,
+    1055707,
+    34451,
+    45605,
+    1316083,
+    8533997,
+    8355843,
+    9103448,
+    1010962,
+    10030121,
+    10090936,
+    5899436,
+    8574539,
+    963821,
+    7974908,
+    8029566,
+    8765721,
+    8745295,
+    10114038,
+    10230556,
+    10549196,
+    10549197,
+    10838415,
+    12384973,
+    12808734,
+    10830542,
+    10886020,
+    12177907,
+    11689779,
+    12369684,
+    15215132
+  ],
+  "first_sentence": {
+    "type": "/type/text",
+    "value": "MANY YEARS LATER, as he faced the firing squad, Colonel Aureliano Buendia was to remember that distant afternoon when his father took him to discover ice."
+  },
+  "subject_places": [
+    "Latin America",
+    "Macondo",
+    "America Latina",
+    "Amérique latine"
+  ],
+  "first_publish_date": "March 1999",
+  "subject_people": [
+    "Aureliano Buendía",
+    "Gabriel García Márquez (1928-)"
+  ],
+  "key": "/works/OL274505W",
+  "authors": [
+    {
+      "author": {
+        "key": "/authors/OL27363A"
+      },
+      "type": {
+        "key": "/type/author_role"
+      }
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt": "Muchos años después, frente al pelotón de fusilamiento, el coronel Aureliano Buendía había de recordar aquella tarde remota en que su padre lo llevó a conocer el hielo. Macondo era entonces una aldea de 20 casas de barro y cañabrava construidas a la orilla de un río de aguas diáfanas que se precipitaban por un lecho de piedras pulidas, blancas y enormes como huevos prehistóricos. El mundo era tan reciente, que muchas cosas carecían de nombre, y para mencionarlas había que señalarlas con el dedo.",
+      "comment": "Beginning of the novel.",
+      "author": {
+        "key": "/people/mmaiquez5197"
+      }
+    }
+  ],
+  "type": {
+    "key": "/type/work"
+  },
+  "subjects": [
+    "Spanish language books",
+    "Fiction",
+    "Social conditions",
+    "Macondo (Imaginary place)",
+    "novel",
+    "magic realism",
+    "Latinamerican literature",
+    "Condiciones sociales",
+    "Novela",
+    "Literatura épica",
+    "Epic literature",
+    "Macondo (Lugar imaginario)",
+    "Ficción",
+    "Spanish language materials",
+    "Ficcion",
+    "Translations into Arabic",
+    "Latin American fiction",
+    "Spanish fiction",
+    "Translations into Gujarati",
+    "Chang pian xiao shuo",
+    "Translations into Russian",
+    "Colombian fiction",
+    "Cliffs Notes",
+    "Magic realism (Literature)",
+    "Large type books",
+    "Dorf",
+    "Familie",
+    "Unabhängigkeitsbewegung",
+    "Romans, nouvelles",
+    "Conditions sociales",
+    "Macondo (imaginary place), fiction",
+    "Fiction (fictional works by one author)",
+    "Latin america, fiction",
+    "Fiction, general",
+    "Garcia marquez, gabriel, 1928-2014",
+    "Criticism and interpretation",
+    "Cien años de soledad (García Márquez, Gabriel)",
+    "Spanish American fiction",
+    "In English",
+    "Texts",
+    "Macondo (Lieu imaginaire)",
+    "Romance literature",
+    "América Latina",
+    "Romans, nouvelles, etc. pour la jeunesse",
+    "Roman colombien",
+    "Littérature épique",
+    "Epic poems",
+    "General",
+    "Spanish language",
+    "Fantasy",
+    "Literature",
+    "Macondo (imaginary place)--fiction",
+    "Pq8180.17.a73 c513 1970",
+    "Pz4.g2164",
+    "863",
+    "Language study",
+    "Spanish",
+    "Long Now Manual for Civilization",
+    "Translations into French"
+  ],
+  "links": [
+    {
+      "title": "Cem Anos de Solidão, de Gabriel Garcia Marquez",
+      "url": "https://love-books-review.com/pt-br/cem-anos-de-solidao-gabriel-garcia-marquez/",
+      "type": {
+        "key": "/type/link"
+      }
+    }
+  ],
+  "latest_revision": 60,
+  "revision": 60,
+  "created": {
+    "type": "/type/datetime",
+    "value": "2009-10-25T05:16:15.536205"
+  },
+  "last_modified": {
+    "type": "/type/datetime",
+    "value": "2026-04-25T16:56:04.448920"
+  }
+}

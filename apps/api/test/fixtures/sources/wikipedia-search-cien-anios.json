@@ -1,0 +1,52 @@
+{
+  "pages": [
+    {
+      "id": 14758,
+      "key": "Cien_años_de_soledad",
+      "title": "Cien años de soledad",
+      "excerpt": "<span class=\"searchmatch\">Cien</span> <span class=\"searchmatch\">años</span> <span class=\"searchmatch\">de</span> <span class=\"searchmatch\">soledad</span> es una novela del escritor colombiano ganadora del Premio Nobel <span class=\"searchmatch\">de</span> Literatura <span class=\"searchmatch\">Gabriel</span> <span class=\"searchmatch\">García</span> <span class=\"searchmatch\">Márquez</span>. Es opinión general que se trata",
+      "matched_title": null,
+      "anchor": null,
+      "description": "novela de Gabriel García Márquez",
+      "thumbnail": {
+        "mimetype": "image/png",
+        "width": 60,
+        "height": 83,
+        "duration": null,
+        "url": "//upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Cien_a%C3%B1os_de_soledad.png/60px-Cien_a%C3%B1os_de_soledad.png?utm_source=es.wikipedia.org&utm_campaign=rest&utm_content=thumbnail"
+      }
+    },
+    {
+      "id": 5692,
+      "key": "Gabriel_García_Márquez",
+      "title": "Gabriel García Márquez",
+      "excerpt": "<span class=\"searchmatch\">Gabriel</span> José <span class=\"searchmatch\">García</span> <span class=\"searchmatch\">Márquez</span> (Aracataca, Magdalena, 6 <span class=\"searchmatch\">de</span> marzo <span class=\"searchmatch\">de</span> 1927-Ciudad <span class=\"searchmatch\">de</span> México, 17 <span class=\"searchmatch\">de</span> abril <span class=\"searchmatch\">de</span> 2014)​​ fue un escritor, guionista y periodista",
+      "matched_title": null,
+      "anchor": null,
+      "description": "escritor y periodista colombiano (1927–2014)",
+      "thumbnail": {
+        "mimetype": "image/jpeg",
+        "width": 60,
+        "height": 90,
+        "duration": null,
+        "url": "//upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Gabriel_Garcia_Marquez.jpg/60px-Gabriel_Garcia_Marquez.jpg?utm_source=es.wikipedia.org&utm_campaign=rest&utm_content=thumbnail"
+      }
+    },
+    {
+      "id": 10859452,
+      "key": "Cien_años_de_soledad_(serie_de_televisión)",
+      "title": "Cien años de soledad (serie de televisión)",
+      "excerpt": "<span class=\"searchmatch\">Cien</span> <span class=\"searchmatch\">años</span> <span class=\"searchmatch\">de</span> <span class=\"searchmatch\">soledad</span> es una serie <span class=\"searchmatch\">de</span> televisión colombiana basada en la novela homónima escrita por el colombiano <span class=\"searchmatch\">Gabriel</span> <span class=\"searchmatch\">García</span> <span class=\"searchmatch\">Márquez</span> en 1967. Dirigida",
+      "matched_title": null,
+      "anchor": null,
+      "description": "serie de televisión de 2024",
+      "thumbnail": {
+        "mimetype": "image/jpeg",
+        "width": 60,
+        "height": 40,
+        "duration": null,
+        "url": "//upload.wikimedia.org/wikipedia/commons/thumb/b/be/Stand_de_la_serie_%22Cien_a%C3%B1os_de_soledad%22.jpg/60px-Stand_de_la_serie_%22Cien_a%C3%B1os_de_soledad%22.jpg?utm_source=es.wikipedia.org&utm_campaign=rest&utm_content=thumbnail"
+      }
+    }
+  ]
+}

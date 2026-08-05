@@ -1,0 +1,23 @@
+{
+  "name": "lector",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "overrides": {
+    "jsdom": "^29.1.1"
+  },
+  "scripts": {
+    "dev:web": "npm run dev --workspace @lector/web --",
+    "dev:api": "npm run dev --workspace @lector/api --",
+    "build": "npm run build --workspace @lector/web",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  }
+}

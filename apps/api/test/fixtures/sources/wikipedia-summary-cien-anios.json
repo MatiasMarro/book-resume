@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Cien años de soledad",
+  "displaytitle": "<span lang=\"es\" dir=\"ltr\"><span class=\"mw-page-title-main\">Cien años de soledad</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q178869",
+  "titles": {
+    "canonical": "Cien_años_de_soledad",
+    "normalized": "Cien años de soledad",
+    "display": "<span lang=\"es\" dir=\"ltr\"><span class=\"mw-page-title-main\">Cien años de soledad</span></span>"
+  },
+  "pageid": 14758,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Cien_a%C3%B1os_de_soledad.png/330px-Cien_a%C3%B1os_de_soledad.png?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 454
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Cien_a%C3%B1os_de_soledad.png?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "width": 625,
+    "height": 860
+  },
+  "lang": "es",
+  "dir": "ltr",
+  "revision": "174692962",
+  "tid": "85e2a0a7-9019-11f1-a9ff-36107989826b",
+  "timestamp": "2026-08-04T15:31:12Z",
+  "description": "novela de Gabriel García Márquez",
+  "description_source": "central",
+  "content_urls": {
+    "desktop": {
+      "page": "https://es.wikipedia.org/wiki/Cien_a%C3%B1os_de_soledad",
+      "revisions": "https://es.wikipedia.org/wiki/Cien_a%C3%B1os_de_soledad?action=history",
+      "edit": "https://es.wikipedia.org/wiki/Cien_a%C3%B1os_de_soledad?action=edit",
+      "talk": "https://es.wikipedia.org/wiki/Discusi%C3%B3n:Cien_a%C3%B1os_de_soledad"
+    },
+    "mobile": {
+      "page": "https://es.wikipedia.org/wiki/Cien_a%C3%B1os_de_soledad",
+      "revisions": "https://es.wikipedia.org/wiki/Special:History/Cien_a%C3%B1os_de_soledad",
+      "edit": "https://es.wikipedia.org/wiki/Cien_a%C3%B1os_de_soledad?action=edit",
+      "talk": "https://es.wikipedia.org/wiki/Discusi%C3%B3n:Cien_a%C3%B1os_de_soledad"
+    }
+  },
+  "extract": "Cien años de soledad es una novela del escritor colombiano ganadora del Premio Nobel de Literatura Gabriel García Márquez. Es opinión general que se trata de una obra maestra de la literatura hispanoamericana y universal, y es una de las obras más traducidas y leídas en español. En marzo de 2007, el IV Congreso Internacional de la Lengua Española celebrado en Cartagena de Indias la consideró una de las obras más importantes en dicha lengua. Figura en la lista de las 100 mejores novelas en español del siglo XX del periódico español El Mundo, en la de los 100 libros del siglo XX del diario francés Le Monde, y en los 100 mejores libros de todos los tiempos del Club de libros de Noruega.",
+  "extract_html": "<p><i><b>Cien años de soledad</b></i> es una novela del escritor colombiano ganadora del Premio Nobel de Literatura Gabriel García Márquez. Es opinión general que se trata de una obra maestra de la literatura hispanoamericana y universal, y es una de las obras más traducidas y leídas en español. En marzo de 2007, el IV Congreso Internacional de la Lengua Española celebrado en Cartagena de Indias la consideró una de las obras más importantes en dicha lengua. Figura en la <span>lista de las 100 mejores novelas en español del siglo <span style=\"text-transform:lowercase\">XX</span></span> del periódico español <i>El Mundo</i>, en la de <span>los 100 libros del siglo <span style=\"text-transform:lowercase\">XX</span></span> del diario francés <i>Le Monde</i>, y en los 100 mejores libros de todos los tiempos del Club de libros de Noruega.</p>"
+}

@@ -1,0 +1,73 @@
+{
+  "publishers": [
+    "Salamandra"
+  ],
+  "translated_from": [
+    {
+      "key": "/languages/fre"
+    }
+  ],
+  "identifiers": {
+    "bcid": [
+      "14656186"
+    ]
+  },
+  "description": "«Viví así, solo, sin nadie con quien hablar verdaderamente, hasta que tuve una avería en el desierto del Sahara, hace seis años. Algo se había roto en mi motor. Y como no tenía conmigo ni mecánico ni pasajeros, me dispuse a realizar, solo, una reparación difícil. Era, para mí, cuestión de vida o muerte. Tenía agua apenas para ocho días.»",
+  "contributors": [
+    {
+      "name": "Antoine de Saint-Exupéry",
+      "role": "Illustrator"
+    }
+  ],
+  "covers": [
+    8042224
+  ],
+  "physical_format": "Paperback",
+  "key": "/books/OL26357785M",
+  "publish_places": [
+    "Barcelona, Spain"
+  ],
+  "classifications": {},
+  "title": "El Principito",
+  "translation_of": "Le petit prince",
+  "notes": "Con acuarelas originales del autor",
+  "number_of_pages": 93,
+  "languages": [
+    {
+      "key": "/languages/spa"
+    }
+  ],
+  "publish_date": "2010",
+  "works": [
+    {
+      "key": "/works/OL10263W"
+    }
+  ],
+  "type": {
+    "key": "/type/edition"
+  },
+  "physical_dimensions": "22 x  x  centimeters",
+  "isbn_10": [
+    "8498381495"
+  ],
+  "isbn_13": [
+    "9788498381498",
+    "9789876373487"
+  ],
+  "oclc_numbers": [
+    "971828881"
+  ],
+  "source_records": [
+    "bwb:9788498381498"
+  ],
+  "latest_revision": 10,
+  "revision": 10,
+  "created": {
+    "type": "/type/datetime",
+    "value": "2017-07-29T20:16:52.250782"
+  },
+  "last_modified": {
+    "type": "/type/datetime",
+    "value": "2023-01-18T09:47:14.521060"
+  }
+}

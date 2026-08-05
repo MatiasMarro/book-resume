@@ -1,0 +1,23 @@
+# deps
+node_modules/
+
+# builds
+dist/
+dev-dist/
+coverage/
+
+# secretos — nunca commitear (ver regla "cero secretos en el cliente")
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+
+# cloudflare
+.wrangler/
+
+# varios
+*.local
+*.log
+.DS_Store
+Thumbs.db

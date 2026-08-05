@@ -1,0 +1,78 @@
+{
+  "publishers": [
+    "Santillana USA Publishing Co."
+  ],
+  "identifiers": {
+    "librarything": [
+      "5864"
+    ],
+    "goodreads": [
+      "370523"
+    ]
+  },
+  "weight": "1.8 pounds",
+  "covers": [
+    2269535,
+    6079768
+  ],
+  "physical_format": "Hardcover",
+  "key": "/books/OL9116617M",
+  "authors": [
+    {
+      "key": "/authors/OL27363A"
+    }
+  ],
+  "subjects": [
+    "General & Literary Fiction",
+    "Latin American Novel And Short Story",
+    "Fiction",
+    "New Age / Body, Mind & Spirit",
+    "Spanish",
+    "Spanish: Adult Fiction",
+    "South America",
+    "General",
+    "Literature & Fiction / General",
+    "Fantasy - Epic",
+    "1928-",
+    "Cien aänos de soledad",
+    "Criticism and interpretation",
+    "Garcâia Mâarquez, Gabriel,"
+  ],
+  "edition_name": "Edición conmemorativa (The 40th Anniversary Edition)",
+  "languages": [
+    {
+      "key": "/languages/spa"
+    }
+  ],
+  "source_records": [
+    "amazon:8420471836:hq:158865797:242165"
+  ],
+  "title": "Cien años de soledad",
+  "number_of_pages": 756,
+  "isbn_13": [
+    "9788420471839"
+  ],
+  "isbn_10": [
+    "8420471836"
+  ],
+  "publish_date": "March 21, 2007",
+  "works": [
+    {
+      "key": "/works/OL274505W"
+    }
+  ],
+  "type": {
+    "key": "/type/edition"
+  },
+  "physical_dimensions": "8.2 x 5.1 x 1.6 inches",
+  "latest_revision": 12,
+  "revision": 12,
+  "created": {
+    "type": "/type/datetime",
+    "value": "2008-04-30T09:38:13.731961"
+  },
+  "last_modified": {
+    "type": "/type/datetime",
+    "value": "2025-04-10T01:40:57.093663"
+  }
+}

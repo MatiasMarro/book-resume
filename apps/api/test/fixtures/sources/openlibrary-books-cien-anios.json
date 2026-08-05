@@ -1,0 +1,452 @@
+{
+  "ISBN:9788420471839": {
+    "url": "http://openlibrary.org/books/OL17228124M/Cien_años_de_soledad",
+    "key": "/books/OL17228124M",
+    "title": "Cien años de soledad",
+    "authors": [
+      {
+        "url": "http://openlibrary.org/authors/OL27363A/Gabriel_García_Márquez",
+        "name": "Gabriel García Márquez"
+      }
+    ],
+    "number_of_pages": 609,
+    "pagination": "cxxxviii, 609 p. :",
+    "by_statement": "Gabriel García Márquez",
+    "identifiers": {
+      "goodreads": [
+        "370523"
+      ],
+      "librarything": [
+        "5864"
+      ],
+      "isbn_10": [
+        "8420471836"
+      ],
+      "isbn_13": [
+        "9788420471837"
+      ],
+      "lccn": [
+        "2007469554"
+      ],
+      "oclc": [
+        "123015153",
+        "145748864"
+      ],
+      "openlibrary": [
+        "OL17228124M"
+      ]
+    },
+    "classifications": {
+      "lc_classifications": [
+        "PQ8180.17.A73 C5 2007",
+        "PQ8180.17.A73 C54 2007"
+      ]
+    },
+    "publishers": [
+      {
+        "name": "Alfaguara"
+      },
+      {
+        "name": "Real Academia Española"
+      },
+      {
+        "name": "Asociación de Academias de la Lengua Española"
+      }
+    ],
+    "publish_places": [
+      {
+        "name": "[Madrid]"
+      },
+      {
+        "name": "[México, D.F.]"
+      }
+    ],
+    "publish_date": "2007",
+    "subjects": [
+      {
+        "name": "Spanish language books",
+        "url": "https://openlibrary.org/subjects/spanish_language_books"
+      },
+      {
+        "name": "Fiction",
+        "url": "https://openlibrary.org/subjects/fiction"
+      },
+      {
+        "name": "Social conditions",
+        "url": "https://openlibrary.org/subjects/social_conditions"
+      },
+      {
+        "name": "Macondo (Imaginary place)",
+        "url": "https://openlibrary.org/subjects/macondo_(imaginary_place)"
+      },
+      {
+        "name": "novel",
+        "url": "https://openlibrary.org/subjects/novel"
+      },
+      {
+        "name": "magic realism",
+        "url": "https://openlibrary.org/subjects/magic_realism"
+      },
+      {
+        "name": "Latinamerican literature",
+        "url": "https://openlibrary.org/subjects/latinamerican_literature"
+      },
+      {
+        "name": "Condiciones sociales",
+        "url": "https://openlibrary.org/subjects/condiciones_sociales"
+      },
+      {
+        "name": "Novela",
+        "url": "https://openlibrary.org/subjects/novela"
+      },
+      {
+        "name": "Literatura épica",
+        "url": "https://openlibrary.org/subjects/literatura_épica"
+      },
+      {
+        "name": "Epic literature",
+        "url": "https://openlibrary.org/subjects/epic_literature"
+      },
+      {
+        "name": "Macondo (Lugar imaginario)",
+        "url": "https://openlibrary.org/subjects/macondo_(lugar_imaginario)"
+      },
+      {
+        "name": "Ficción",
+        "url": "https://openlibrary.org/subjects/ficción"
+      },
+      {
+        "name": "Spanish language materials",
+        "url": "https://openlibrary.org/subjects/spanish_language_materials"
+      },
+      {
+        "name": "Ficcion",
+        "url": "https://openlibrary.org/subjects/ficcion"
+      },
+      {
+        "name": "Translations into Arabic",
+        "url": "https://openlibrary.org/subjects/translations_into_arabic"
+      },
+      {
+        "name": "Latin American fiction",
+        "url": "https://openlibrary.org/subjects/latin_american_fiction"
+      },
+      {
+        "name": "Spanish fiction",
+        "url": "https://openlibrary.org/subjects/spanish_fiction"
+      },
+      {
+        "name": "Translations into Gujarati",
+        "url": "https://openlibrary.org/subjects/translations_into_gujarati"
+      },
+      {
+        "name": "Chang pian xiao shuo",
+        "url": "https://openlibrary.org/subjects/chang_pian_xiao_shuo"
+      },
+      {
+        "name": "Translations into Russian",
+        "url": "https://openlibrary.org/subjects/translations_into_russian"
+      },
+      {
+        "name": "Colombian fiction",
+        "url": "https://openlibrary.org/subjects/colombian_fiction"
+      },
+      {
+        "name": "Cliffs Notes",
+        "url": "https://openlibrary.org/subjects/cliffs_notes"
+      },
+      {
+        "name": "Magic realism (Literature)",
+        "url": "https://openlibrary.org/subjects/magic_realism_(literature)"
+      },
+      {
+        "name": "Large type books",
+        "url": "https://openlibrary.org/subjects/large_type_books"
+      },
+      {
+        "name": "Dorf",
+        "url": "https://openlibrary.org/subjects/dorf"
+      },
+      {
+        "name": "Familie",
+        "url": "https://openlibrary.org/subjects/familie"
+      },
+      {
+        "name": "Unabhängigkeitsbewegung",
+        "url": "https://openlibrary.org/subjects/unabhängigkeitsbewegung"
+      },
+      {
+        "name": "Romans, nouvelles",
+        "url": "https://openlibrary.org/subjects/romans,_nouvelles"
+      },
+      {
+        "name": "Conditions sociales",
+        "url": "https://openlibrary.org/subjects/conditions_sociales"
+      },
+      {
+        "name": "Macondo (imaginary place), fiction",
+        "url": "https://openlibrary.org/subjects/macondo_(imaginary_place),_fiction"
+      },
+      {
+        "name": "Fiction (fictional works by one author)",
+        "url": "https://openlibrary.org/subjects/fiction_(fictional_works_by_one_author)"
+      },
+      {
+        "name": "Latin america, fiction",
+        "url": "https://openlibrary.org/subjects/latin_america,_fiction"
+      },
+      {
+        "name": "Fiction, general",
+        "url": "https://openlibrary.org/subjects/fiction,_general"
+      },
+      {
+        "name": "Garcia marquez, gabriel, 1928-2014",
+        "url": "https://openlibrary.org/subjects/garcia_marquez,_gabriel,_1928-2014"
+      },
+      {
+        "name": "Criticism and interpretation",
+        "url": "https://openlibrary.org/subjects/criticism_and_interpretation"
+      },
+      {
+        "name": "Cien años de soledad (García Márquez, Gabriel)",
+        "url": "https://openlibrary.org/subjects/cien_años_de_soledad_(garcía_márquez,_gabriel)"
+      },
+      {
+        "name": "Spanish American fiction",
+        "url": "https://openlibrary.org/subjects/spanish_american_fiction"
+      },
+      {
+        "name": "In English",
+        "url": "https://openlibrary.org/subjects/in_english"
+      },
+      {
+        "name": "Texts",
+        "url": "https://openlibrary.org/subjects/texts"
+      },
+      {
+        "name": "Macondo (Lieu imaginaire)",
+        "url": "https://openlibrary.org/subjects/macondo_(lieu_imaginaire)"
+      },
+      {
+        "name": "Romance literature",
+        "url": "https://openlibrary.org/subjects/romance_literature"
+      },
+      {
+        "name": "América Latina",
+        "url": "https://openlibrary.org/subjects/américa_latina"
+      },
+      {
+        "name": "Romans, nouvelles, etc. pour la jeunesse",
+        "url": "https://openlibrary.org/subjects/romans,_nouvelles,_etc._pour_la_jeunesse"
+      },
+      {
+        "name": "Roman colombien",
+        "url": "https://openlibrary.org/subjects/roman_colombien"
+      },
+      {
+        "name": "Littérature épique",
+        "url": "https://openlibrary.org/subjects/littérature_épique"
+      },
+      {
+        "name": "Epic poems",
+        "url": "https://openlibrary.org/subjects/epic_poems"
+      },
+      {
+        "name": "General",
+        "url": "https://openlibrary.org/subjects/general"
+      },
+      {
+        "name": "Spanish language",
+        "url": "https://openlibrary.org/subjects/spanish_language"
+      },
+      {
+        "name": "Fantasy",
+        "url": "https://openlibrary.org/subjects/fantasy"
+      },
+      {
+        "name": "Literature",
+        "url": "https://openlibrary.org/subjects/literature"
+      },
+      {
+        "name": "Macondo (imaginary place)--fiction",
+        "url": "https://openlibrary.org/subjects/macondo_(imaginary_place)--fiction"
+      },
+      {
+        "name": "Pq8180.17.a73 c513 1970",
+        "url": "https://openlibrary.org/subjects/pq8180.17.a73_c513_1970"
+      },
+      {
+        "name": "Pz4.g2164",
+        "url": "https://openlibrary.org/subjects/pz4.g2164"
+      },
+      {
+        "name": "863",
+        "url": "https://openlibrary.org/subjects/863"
+      },
+      {
+        "name": "Language study",
+        "url": "https://openlibrary.org/subjects/language_study"
+      },
+      {
+        "name": "Spanish",
+        "url": "https://openlibrary.org/subjects/spanish"
+      },
+      {
+        "name": "Long Now Manual for Civilization",
+        "url": "https://openlibrary.org/subjects/long_now_manual_for_civilization"
+      },
+      {
+        "name": "Translations into French",
+        "url": "https://openlibrary.org/subjects/translations_into_french"
+      }
+    ],
+    "subject_places": [
+      {
+        "name": "Latin America",
+        "url": "https://openlibrary.org/subjects/place:latin_america"
+      },
+      {
+        "name": "Macondo",
+        "url": "https://openlibrary.org/subjects/place:macondo"
+      },
+      {
+        "name": "America Latina",
+        "url": "https://openlibrary.org/subjects/place:america_latina"
+      },
+      {
+        "name": "Amérique latine",
+        "url": "https://openlibrary.org/subjects/place:amérique_latine"
+      }
+    ],
+    "subject_people": [
+      {
+        "name": "Aureliano Buendía",
+        "url": "https://openlibrary.org/subjects/person:aureliano_buendía"
+      },
+      {
+        "name": "Gabriel García Márquez (1928-)",
+        "url": "https://openlibrary.org/subjects/person:gabriel_garcía_márquez_(1928-)"
+      }
+    ],
+    "subject_times": [
+      {
+        "name": "Unknown",
+        "url": "https://openlibrary.org/subjects/time:unknown"
+      },
+      {
+        "name": "20th century",
+        "url": "https://openlibrary.org/subjects/time:20th_century"
+      }
+    ],
+    "excerpts": [
+      {
+        "text": "MANY YEARS LATER, as he faced the firing squad, Colonel Aureliano Buendia was to remember that distant afternoon when his father took him to discover ice.",
+        "comment": "",
+        "first_sentence": true
+      },
+      {
+        "text": "Muchos años después, frente al pelotón de fusilamiento, el coronel Aureliano Buendía había de recordar aquella tarde remota en que su padre lo llevó a conocer el hielo. Macondo era entonces una aldea de 20 casas de barro y cañabrava construidas a la orilla de un río de aguas diáfanas que se precipitaban por un lecho de piedras pulidas, blancas y enormes como huevos prehistóricos. El mundo era tan reciente, que muchas cosas carecían de nombre, y para mencionarlas había que señalarlas con el dedo.",
+        "comment": "Beginning of the novel."
+      }
+    ],
+    "notes": "\"Texto revisado por el autor para esta edición.\"",
+    "table_of_contents": [
+      {
+        "level": 0,
+        "label": "",
+        "title": "Presentación",
+        "pagenum": ""
+      },
+      {
+        "level": 0,
+        "label": "",
+        "title": "Lo que sé de Gabriel / Alvaro Mutis",
+        "pagenum": ""
+      },
+      {
+        "level": 0,
+        "label": "",
+        "title": "Para darle nombre a América / Carlos Fuentes",
+        "pagenum": ""
+      },
+      {
+        "level": 0,
+        "label": "",
+        "title": "Cien años de soledad: realidad total, novela total / Mario Vargas Llosa",
+        "pagenum": ""
+      },
+      {
+        "level": 0,
+        "label": "",
+        "title": "Gabriel García Márquez, en busca de la verdad poética / Víctor García de la Concha",
+        "pagenum": ""
+      },
+      {
+        "level": 0,
+        "label": "",
+        "title": "Algunas literariedades de Cien años de soledad / Claudio Guillén",
+        "pagenum": ""
+      },
+      {
+        "level": 0,
+        "label": "",
+        "title": "Nota al texto",
+        "pagenum": ""
+      },
+      {
+        "level": 0,
+        "label": "",
+        "title": "Árbol genealógico de los Buendía",
+        "pagenum": ""
+      },
+      {
+        "level": 0,
+        "label": "",
+        "title": "Cien años de soledad",
+        "pagenum": ""
+      },
+      {
+        "level": 0,
+        "label": "",
+        "title": "García Márquez y Cien años de soledad en la novela hispanoamericana / Pedro Luis Barcia, Juan Gustavo Cobo Borda, Gonzalo Celorio, Sergio Ramírez",
+        "pagenum": ""
+      },
+      {
+        "level": 0,
+        "label": "",
+        "title": "Bibliografía utilizada",
+        "pagenum": ""
+      },
+      {
+        "level": 0,
+        "label": "",
+        "title": "Glosario",
+        "pagenum": ""
+      },
+      {
+        "level": 0,
+        "label": "",
+        "title": "Nombres",
+        "pagenum": ""
+      }
+    ],
+    "links": [
+      {
+        "title": "Cem Anos de Solidão, de Gabriel Garcia Marquez",
+        "url": "https://love-books-review.com/pt-br/cem-anos-de-solidao-gabriel-garcia-marquez/"
+      }
+    ],
+    "ebooks": [
+      {
+        "preview_url": "https://archive.org/details/cienanosdesoleda0000garc",
+        "availability": "restricted",
+        "formats": {}
+      }
+    ],
+    "cover": {
+      "small": "https://covers.openlibrary.org/b/id/15219095-S.jpg",
+      "medium": "https://covers.openlibrary.org/b/id/15219095-M.jpg",
+      "large": "https://covers.openlibrary.org/b/id/15219095-L.jpg"
+    }
+  }
+}

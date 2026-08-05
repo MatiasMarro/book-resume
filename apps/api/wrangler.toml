@@ -1,0 +1,29 @@
+name = "lector-api"
+main = "src/index.ts"
+# Techo impuesto por wrangler 4.86: es el runtime más nuevo que trae ese binario.
+# Al pasar a Node 22 y destrabar wrangler, subir ambos juntos.
+compatibility_date = "2026-05-03"
+
+# Variables públicas. Los defaults son los de desarrollo: `fixture` no gasta un
+# centavo ni pega contra ningún proveedor (docs/LLM.md, "Modo fixture").
+# Para producción, sobreescribir con un bloque [env.production.vars].
+#
+# NUNCA poner API keys acá: son secrets (`wrangler secret put OPENAI_API_KEY`).
+# En local se leen de apps/api/.dev.vars, que está gitignoreado.
+[vars]
+LLM_ENABLED = "true"
+LLM_PROVIDER = "fixture"
+LLM_MODEL = "gpt-5.6-luna"
+LLM_PROVIDER_TAIL = "workersai"
+LLM_MODEL_TAIL = ""
+
+# `npm run db:create -w @lector/api` crea la base e imprime el database_id real.
+# Para `wrangler dev` local el placeholder alcanza: la DB vive en .wrangler/.
+[[d1_databases]]
+binding = "DB"
+database_name = "lector-db"
+database_id = "REEMPLAZAR_CON_EL_ID_REAL"
+migrations_dir = "migrations"
+
+[observability]
+enabled = true
