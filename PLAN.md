@@ -14,8 +14,10 @@
 | 0 · Andamiaje | Cerrada |
 | 1 · Spike de cobertura | Parcial — go/no-go abierto |
 | 2 · Resolución y caché | Cerrada |
-| 3 · Enriquecimiento LLM | Siguiente |
-| 4 · Escáner · 5 · Perfil y scoring · 6 · OCR | Sin empezar |
+| 3 · Enriquecimiento LLM | En curso — puntos 1-7 hechos, falta el 8 |
+| 4 · Escáner | Sin empezar |
+| 5 · Perfil y scoring | En curso — `scoring.ts` hecho, falta onboarding y ficha |
+| 6 · OCR | Sin empezar |
 
 ---
 

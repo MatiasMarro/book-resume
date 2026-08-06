@@ -106,8 +106,10 @@ con su procedencia (`DescriptionCandidate`), porque cada fuente se filtra distin
 *Ficciones* y quien ama *Dune* comparten estante y nada más.
 
 14 dimensiones `0.0`–`1.0`. **Fuente de verdad: `packages/shared/src/appeal-vector.ts`** —
-no las copies acá ni en ningún prompt. Score = coseno ponderado + filtros duros por
-`avoids`, **calculado en el cliente**: $0, determinístico, explicable.
+no las copies acá ni en ningún prompt. Score = coseno ponderado **sobre los valores
+centrados en 0** (`x − 0.5`) + filtros duros por `avoids`, **calculado en el cliente**: $0,
+determinístico, explicable. El centrado no es un detalle: sin él un libro extremo en las
+14 dimensiones y uno mínimo en las 14 son colineales y puntúan 100%. → `lib/scoring.ts`
 
 ### 5 · El puntaje SIEMPRE viene con razones
 Nunca un número solo. Las razones salen de comparar dimensiones individuales, **no del
@@ -138,19 +140,22 @@ nada que requiera evadir bloqueos.
 | 1 · Spike de cobertura | **Parcial — go/no-go abierto, ver abajo** |
 | 2 · Resolución y caché | Cerrada |
 | 3 · Enriquecimiento LLM | **En curso — puntos 1-7 hechos, falta el 8** |
-| 4 · Escáner · 5 · Scoring · 6 · OCR | Sin empezar |
+| 4 · Escáner | Sin empezar |
+| 5 · Perfil y scoring | **En curso — `lib/scoring.ts` hecho, falta onboarding y ficha** |
+| 6 · OCR | Sin empezar |
 
-**Anda hoy:** los 3 workspaces compilan y testean (347 tests: 334 api, 2 web, 11 shared) ·
+**Anda hoy:** los 3 workspaces compilan y testean (387 tests: 334 api, 42 web, 11 shared) ·
 `GET /health` · `GET /api/book/:isbn13` de punta a punta —validación de ISBN, caché D1,
 cascada de 3 fuentes, merge por campo, **enriquecimiento por LLM en cache miss**, upgrade
 perezoso y registro en `scan_events`— · `POST /api/event` · D1 local migra (0001 y 0002) ·
-la PWA muestra una pantalla · `npm run spike` mide la cobertura de la Fase 1.
+la PWA muestra una pantalla · `npm run spike` mide la cobertura de la Fase 1 ·
+`lib/scoring.ts` puntúa y explica, 100% cubierto (`npm run test:coverage -w @lector/web`).
 
 todo `apps/api/src/llm/` con 168 tests: sanitize (contra HTML real de Wikipedia ES),
 schema, prompts con 28 anclas, spoilerGuard, los 3 proveedores y el orquestador ·
 `npm run check:models`.
 
-**No existe:** escáner · onboarding · `lib/scoring.ts` · `POST /api/identify` ·
+**No existe:** escáner · onboarding · ficha de libro · `POST /api/identify` ·
 `scripts/enrich-batch.ts` · `scripts/golden-set.ts`.
 
 ### Fase 3 — dónde quedó
@@ -188,6 +193,47 @@ Cuatro decisiones tomadas que conviene no volver a discutir:
   descripciones —del que el modelo nunca va a sacar nada— gastaría una llamada por
   escaneo, para siempre. Un intento por libro; el resto es trabajo de `enrich-batch.ts`.
 
+### Fase 5 — dónde quedó
+
+**Hecho (punto 1).** `apps/web/src/lib/scoring.ts` y `lib/perfil.ts`, con 42 tests y
+cobertura 100% en statements, ramas, funciones y líneas.
+
+**Falta (puntos 2 y 3):** el onboarding y mostrar el `ScoreResult` en la ficha. Los dos
+están bloqueados, y no por sí mismos:
+
+- el **onboarding** necesita los `appealVector` de sus 24 tapas, y esos salen de
+  `enrich-batch.ts` — o sea del punto 8 de la Fase 3;
+- la **ficha** es el punto 5 de la Fase 4, que no empezó.
+
+⚠️ **La Puerta 2 de la Fase 3 —el golden set— nunca se corrió.** `scoring.ts` es correcto
+como matemática y está testeado contra vectores sintéticos, pero su utilidad depende de
+que los `appeal_vector` reales discriminen. Si el vector colapsó, el score va a ser ruido
+prolijo y el criterio de aceptación de la Fase 5 ("¿los scores coinciden con tu
+intuición?") no se va a poder interpretar: no habría forma de saber si falla el coseno,
+los pesos o los datos. Correr `golden-set.ts` **antes** de calibrar nada acá.
+
+Decisiones tomadas que conviene no volver a discutir:
+
+- **El coseno va centrado en 0** (`x − 0.5`). Sobre vectores todos-positivos el coseno
+  mide dirección y no posición: `[0.9 × 14]` contra `[0.1 × 14]` da 1.0 crudo —100% de
+  compatibilidad entre dos libros opuestos— y −1.0 centrado. Sin centrar, además, el rango
+  útil se comprime entre 0.75 y 0.99 y todo puntúa parecido.
+- **`UserProfile` vive en `apps/web/src/lib/perfil.ts`, no en `packages/shared`.** Es lo
+  único que el Worker no puede ver nunca (regla 2); publicarlo en shared lo dejaría a un
+  `import` de distancia desde `apps/api`.
+- **Las dimensiones ausentes del perfil se excluyen del coseno, no se imputan a 0.5.**
+  Imputar inventaría una preferencia que el lector nunca expresó y la mezclaría con las
+  que sí, sin dejar rastro. `ScoreResult.dimensionesComparadas` dice cuántas hubo; en 0 la
+  ficha muestra "completá tu perfil" en vez de un número.
+- **Un libro bloqueado conserva su puntaje.** `band: 'bloqueado'` es la respuesta, pero
+  88% y bloqueado no es lo mismo que 31% y bloqueado, y esa diferencia es del lector.
+- **`scoreBook` recibe un `LibroPuntuable`, no un `AppealVector` pelado.** El PLAN sugería
+  la firma con el vector solo, y con eso los filtros duros son imposibles: las
+  advertencias de contenido viven en el `Enrichment`. Es un subconjunto estructural de
+  `Enrichment` más `pageCount`, así que una ficha completa entra sin adaptador.
+- **La tolerancia de extensión no tiene campo propio en el perfil.** Ya es la dimensión
+  `extension`; un campo aparte sería el mismo dato en dos lugares.
+
 ### ⚠️ El go/no-go de la Fase 1 sigue abierto
 
 Medido con `npm run spike` el 2026-08-05 sobre los 30 ISBN de `scripts/isbns.txt`:
@@ -224,6 +270,7 @@ Todos desde la raíz del repo.
 | Dev PWA (`:5173`) | `npm run dev:web` |
 | Dev Worker (`:8787`) | `npm run dev:api -- --local` (sin `--local` pide `wrangler login`) |
 | Tests de un workspace | `npm test -w @lector/api` (o `@lector/web`, `@lector/shared`) |
+| **Cobertura de `lib/` — `scoring.ts` va 100%** | `npm run test:coverage -w @lector/web` |
 | Tests en watch | `npm run test:watch -w @lector/api` |
 | Tests contra las APIs reales | `LECTOR_LIVE=1 npm test -w @lector/api` |
 | Migrar D1 local | `npm run db:migrate:local -w @lector/api` |
@@ -257,8 +304,9 @@ lector/
 ├─ apps/
 │  ├─ web/src/
 │  │  ├─ features/{scanner,onboarding,book,profile}/   # vacías hasta Fase 4
-│  │  ├─ lib/scoring.ts        # CORE, 100% testeado (Fase 5)
-│  │  └─ store/
+│  │  ├─ lib/scoring.ts        # CORE, 100% cubierto — el coseno centrado y las razones
+│  │  ├─ lib/perfil.ts         # UserProfile. NUNCA sale del dispositivo (regla 2)
+│  │  └─ store/                # vacío hasta el onboarding
 │  └─ api/src/
 │     ├─ routes/               # health, book, event
 │     ├─ sources/              # openlibrary, googlebooks, wikipedia, http, types
@@ -284,6 +332,9 @@ lector/
 | Secciones que se cortan antes del prompt | `apps/api/src/llm/sanitize.ts` (`SECCION_PROHIBIDA`) |
 | Patrones que rechazan una salida | `apps/api/src/llm/spoilerGuard.ts` (`PATRONES_SPOILER`) |
 | Las 28 anclas del appeal vector | `apps/api/src/llm/prompts.ts` (`ANCLAS`) |
+| `UserProfile` y sus pesos | `apps/web/src/lib/perfil.ts` |
+| `ScoreResult`, `Reason`, umbrales y bandas | `apps/web/src/lib/scoring.ts` |
+| Los textos de las razones, uno por polo | `apps/web/src/lib/scoring.ts` (`TEXTOS`) |
 
 Si algo de esto cambia, se cambia **ahí**. Copiarlo acá garantiza que una de las dos
 copias quede vieja.
@@ -336,8 +387,9 @@ Las que el repo ya sigue. Mantenelas:
 
 - Todo módulo que se **crea** o se **modifica** queda con su test al día, en `apps/*/test/`
   (o junto al archivo en web), con nombre `<modulo>.test.ts`.
-- **`lib/scoring.ts` va 100% cubierto** (Fase 5): es el corazón del producto y es
-  matemática pura, no hay excusa.
+- **`lib/scoring.ts` va 100% cubierto** — hoy lo está en las cuatro métricas. Es el
+  corazón del producto y es matemática pura, no hay excusa. Se verifica con
+  `npm run test:coverage -w @lector/web`, que mide solo `src/lib/**`.
 - **`llm/sanitize.ts` va con tests exhaustivos** sobre HTML real de Wikipedia ES (Fase 3).
   Si falla, el resumen spoilea — es el diferencial del producto.
 - **Bugfix:** primero el test que reproduce el bug, para que quede como regresión.

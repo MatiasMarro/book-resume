@@ -9,5 +9,13 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
     include: ['src/**/*.test.{ts,tsx}'],
+    // `lib/` es matemática pura y CLAUDE.md la exige 100% cubierta. Medir los
+    // componentes de React con la misma vara no dice nada útil, así que la
+    // cobertura mira solo acá.
+    coverage: {
+      provider: 'v8',
+      include: ['src/lib/**'],
+      reporter: ['text', 'html'],
+    },
   },
 });
