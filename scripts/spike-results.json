@@ -1,0 +1,767 @@
+{
+  "resumen": {
+    "fecha": "2026-08-06T00:23:14.038Z",
+    "total": 30,
+    "googleBooksHabilitada": true,
+    "pctConDescripcionUsable": 46.7,
+    "pctResueltoPorFuente": {
+      "openlibrary": 50,
+      "googlebooks": 0,
+      "wikipedia": 26.7
+    },
+    "pctConDescripcionPorFuente": {
+      "openlibrary": 46.7,
+      "googlebooks": 0,
+      "wikipedia": 23.3
+    },
+    "isbnsSinResolver": [
+      "9789877383195",
+      "9789500766792",
+      "9789506446100",
+      "9789875669282",
+      "9789504956243",
+      "9789871138805",
+      "9789873687233",
+      "9789871673948",
+      "9789874086134",
+      "9789874489883",
+      "9789871622991",
+      "9789871622649",
+      "9789877192153",
+      "9789873831599",
+      "9789877120200"
+    ]
+  },
+  "resultados": [
+    {
+      "isbn13": "9788498381498",
+      "titulo": "El Principito",
+      "autor": "Antoine de Saint-Exupéry",
+      "openlibrary": {
+        "resuelto": true,
+        "descripcionChars": 1302,
+        "subjects": 67,
+        "tapa": true,
+        "idioma": "es"
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": true,
+        "descripcionChars": 123,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": true,
+      "mejorDescripcionChars": 1302
+    },
+    {
+      "isbn13": "9780307474278",
+      "titulo": "The Da Vinci Code",
+      "autor": "Dan Brown",
+      "openlibrary": {
+        "resuelto": true,
+        "descripcionChars": 476,
+        "subjects": 77,
+        "tapa": true
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": true,
+        "descripcionChars": 236,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": true,
+      "mejorDescripcionChars": 476
+    },
+    {
+      "isbn13": "9780142437230",
+      "titulo": "The ingenious hidalgo Don Quixote de la Mancha",
+      "autor": "Miguel de Cervantes Saavedra",
+      "openlibrary": {
+        "resuelto": true,
+        "descripcionChars": 1068,
+        "subjects": 12,
+        "tapa": true,
+        "idioma": "en"
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": true,
+      "mejorDescripcionChars": 1068
+    },
+    {
+      "isbn13": "9780553380163",
+      "titulo": "A Brief History of Time",
+      "autor": "Stephen Hawking",
+      "openlibrary": {
+        "resuelto": true,
+        "descripcionChars": 739,
+        "subjects": 64,
+        "tapa": true
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": true,
+      "mejorDescripcionChars": 739
+    },
+    {
+      "isbn13": "9780062315007",
+      "titulo": "The Alchemist",
+      "autor": "Paulo Coelho",
+      "openlibrary": {
+        "resuelto": true,
+        "descripcionChars": 501,
+        "subjects": 50,
+        "tapa": true
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": true,
+      "mejorDescripcionChars": 501
+    },
+    {
+      "isbn13": "9780307277671",
+      "titulo": "The Da Vinci Code",
+      "autor": "Dan Brown",
+      "openlibrary": {
+        "resuelto": true,
+        "descripcionChars": 476,
+        "subjects": 77,
+        "tapa": true,
+        "idioma": "en"
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": true,
+        "descripcionChars": 236,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": true,
+      "mejorDescripcionChars": 476
+    },
+    {
+      "isbn13": "9780385490818",
+      "titulo": "The Handmaid's Tale",
+      "autor": "Margaret Atwood",
+      "openlibrary": {
+        "resuelto": true,
+        "descripcionChars": 900,
+        "subjects": 59,
+        "tapa": true,
+        "idioma": "en"
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": true,
+      "mejorDescripcionChars": 900
+    },
+    {
+      "isbn13": "9780061120084",
+      "titulo": "To Kill a Mockingbird",
+      "autor": "Harper Lee",
+      "openlibrary": {
+        "resuelto": true,
+        "descripcionChars": 1293,
+        "subjects": 65,
+        "tapa": true,
+        "idioma": "en"
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": true,
+      "mejorDescripcionChars": 1293
+    },
+    {
+      "isbn13": "9780141187761",
+      "titulo": "Nineteen Eighty-Four",
+      "autor": "George Orwell",
+      "openlibrary": {
+        "resuelto": true,
+        "descripcionChars": 697,
+        "subjects": 100,
+        "tapa": true,
+        "idioma": "en"
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": true,
+      "mejorDescripcionChars": 697
+    },
+    {
+      "isbn13": "9780679783275",
+      "titulo": "Moby Dick, or, The whale",
+      "autor": "Herman Melville",
+      "openlibrary": {
+        "resuelto": true,
+        "descripcionChars": 599,
+        "subjects": 97,
+        "tapa": true,
+        "idioma": "en"
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": true,
+        "descripcionChars": 295,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": true,
+      "mejorDescripcionChars": 599
+    },
+    {
+      "isbn13": "9788433975553",
+      "titulo": "Solar",
+      "autor": "Ian McEwan",
+      "openlibrary": {
+        "resuelto": true,
+        "descripcionChars": 351,
+        "subjects": 27,
+        "tapa": true
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": true,
+        "descripcionChars": 561,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": true,
+      "mejorDescripcionChars": 561
+    },
+    {
+      "isbn13": "9788420471839",
+      "titulo": "Cien años de soledad",
+      "autor": "Gabriel García Márquez",
+      "openlibrary": {
+        "resuelto": true,
+        "descripcionChars": 424,
+        "subjects": 59,
+        "tapa": true,
+        "idioma": "es"
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": true,
+        "descripcionChars": 692,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": true,
+      "mejorDescripcionChars": 692
+    },
+    {
+      "isbn13": "9789876700269",
+      "titulo": "1Q84 - Libros 1 Y 2",
+      "autor": "村上春樹",
+      "openlibrary": {
+        "resuelto": true,
+        "descripcionChars": 11,
+        "subjects": 14,
+        "tapa": true
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 11
+    },
+    {
+      "isbn13": "9789877383195",
+      "openlibrary": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 0
+    },
+    {
+      "isbn13": "9789877252538",
+      "titulo": "Rayuela",
+      "autor": "Julio Cortázar",
+      "openlibrary": {
+        "resuelto": true,
+        "descripcionChars": 633,
+        "subjects": 25,
+        "tapa": true,
+        "idioma": "es"
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": true,
+        "descripcionChars": 230,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": true,
+      "mejorDescripcionChars": 633
+    },
+    {
+      "isbn13": "9789500766792",
+      "openlibrary": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 0
+    },
+    {
+      "isbn13": "9789506446100",
+      "openlibrary": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 0
+    },
+    {
+      "isbn13": "9789875669282",
+      "openlibrary": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 0
+    },
+    {
+      "isbn13": "9789504956243",
+      "openlibrary": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 0
+    },
+    {
+      "isbn13": "9789871138805",
+      "openlibrary": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 0
+    },
+    {
+      "isbn13": "9789877187182",
+      "titulo": "1984",
+      "autor": "George Orwell",
+      "openlibrary": {
+        "resuelto": true,
+        "descripcionChars": 697,
+        "subjects": 100,
+        "tapa": false,
+        "idioma": "en"
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": true,
+        "descripcionChars": 496,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": true,
+      "mejorDescripcionChars": 697
+    },
+    {
+      "isbn13": "9789873687233",
+      "openlibrary": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 0
+    },
+    {
+      "isbn13": "9789871673948",
+      "openlibrary": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 0
+    },
+    {
+      "isbn13": "9789874086134",
+      "openlibrary": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 0
+    },
+    {
+      "isbn13": "9789874489883",
+      "openlibrary": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 0
+    },
+    {
+      "isbn13": "9789871622991",
+      "openlibrary": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 0
+    },
+    {
+      "isbn13": "9789871622649",
+      "openlibrary": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 0
+    },
+    {
+      "isbn13": "9789877192153",
+      "openlibrary": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 0
+    },
+    {
+      "isbn13": "9789873831599",
+      "openlibrary": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 0
+    },
+    {
+      "isbn13": "9789877120200",
+      "openlibrary": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "googlebooks": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "wikipedia": {
+        "resuelto": false,
+        "descripcionChars": 0,
+        "subjects": 0,
+        "tapa": false
+      },
+      "tieneDescripcionUsable": false,
+      "mejorDescripcionChars": 0
+    }
+  ]
+}

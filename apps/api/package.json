@@ -16,6 +16,7 @@
   "dependencies": {
     "@lector/shared": "*",
     "hono": "^4.13.0",
+    "openai": "^7.4.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {

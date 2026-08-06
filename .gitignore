@@ -5,6 +5,8 @@ node_modules/
 dist/
 dev-dist/
 coverage/
+# los scripts de scripts/ se bundlean acá antes de correr con node
+scripts/.build/
 
 # secretos — nunca commitear (ver regla "cero secretos en el cliente")
 .env

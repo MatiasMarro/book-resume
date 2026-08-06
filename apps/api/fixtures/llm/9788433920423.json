@@ -1,0 +1,24 @@
+{
+  "summary": "Ignatius J. Reilly tiene treinta años, vive con su madre en Nueva Orleans y está convencido de que el mundo moderno es una ofensa personal contra su sentido de la geometría y la teología. Un accidente menor obliga a la familia a conseguir plata, y entonces Ignatius sale a buscar trabajo. La novela es una comedia coral sobre una ciudad entera vista por alguien que se cree muy superior a ella.",
+  "hook": "Un erudito insoportable sale a trabajar y arrastra a Nueva Orleans con él.",
+  "genres": ["comedia", "novela picaresca", "sátira"],
+  "appeal_vector": {
+    "ritmo": 0.55,
+    "densidadPersonajes": 0.85,
+    "introspeccion": 0.3,
+    "linealidad": 0.8,
+    "cierre": 0.65,
+    "worldbuilding": 0.25,
+    "anclajeHistorico": 0.55,
+    "luminosidad": 0.6,
+    "humor": 0.95,
+    "densidadProsa": 0.55,
+    "exigencia": 0.4,
+    "cargaEmocional": 0.35,
+    "romance": 0.2,
+    "extension": 0.7
+  },
+  "content_flags": [],
+  "comparables": ["Las aventuras del buen soldado Švejk, de Jaroslav Hašek"],
+  "confidence": 0.9
+}

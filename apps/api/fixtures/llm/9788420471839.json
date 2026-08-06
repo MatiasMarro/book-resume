@@ -1,0 +1,24 @@
+{
+  "summary": "En Macondo, un pueblo levantado entre ciénagas por un puñado de familias, José Arcadio Buendía funda una estirpe mientras persigue inventos que le traen los gitanos. La novela sigue a esa familia a lo largo de varias generaciones, con un narrador que cuenta lo extraordinario con la misma naturalidad que lo cotidiano. Tono de crónica oral, humor seco y una sensación permanente de que el tiempo del pueblo no avanza igual que el de afuera.",
+  "hook": "Una estirpe, un pueblo inventado y el tiempo dando vueltas en círculo.",
+  "genres": ["realismo mágico", "saga familiar", "literatura latinoamericana"],
+  "appeal_vector": {
+    "ritmo": 0.35,
+    "densidadPersonajes": 0.95,
+    "introspeccion": 0.5,
+    "linealidad": 0.25,
+    "cierre": 0.7,
+    "worldbuilding": 0.8,
+    "anclajeHistorico": 0.6,
+    "luminosidad": 0.3,
+    "humor": 0.55,
+    "densidadProsa": 0.8,
+    "exigencia": 0.7,
+    "cargaEmocional": 0.75,
+    "romance": 0.4,
+    "extension": 0.85
+  },
+  "content_flags": ["violencia-grafica", "final-tragico"],
+  "comparables": ["Pedro Páramo, de Juan Rulfo", "La casa de los espíritus, de Isabel Allende"],
+  "confidence": 0.92
+}

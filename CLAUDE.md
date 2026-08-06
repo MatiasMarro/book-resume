@@ -99,7 +99,7 @@ comparables. Nunca el punto medio ni el desenlace.
 
 Corolario ya implementado: **las descripciones nunca se concatenan** — viajan separadas
 con su procedencia (`DescriptionCandidate`), porque cada fuente se filtra distinto.
-→ `sources/types.ts`, `resolver/merge.ts`; Fase 3: `llm/sanitize.ts`, `llm/spoilerGuard.ts`
+→ `sources/types.ts`, `resolver/merge.ts`, `llm/sanitize.ts`, `llm/spoilerGuard.ts`
 
 ### 4 · El matching es por factores de apelación, no por género
 *Reader's advisory* de Joyce Saricks: el género es un predictor pésimo — quien ama
@@ -137,30 +137,66 @@ nada que requiera evadir bloqueos.
 | 0 · Andamiaje | Cerrada |
 | 1 · Spike de cobertura | **Parcial — go/no-go abierto, ver abajo** |
 | 2 · Resolución y caché | Cerrada |
-| 3 · Enriquecimiento LLM | Siguiente |
+| 3 · Enriquecimiento LLM | **En curso — puntos 1-6 hechos, faltan 7 y 8** |
 | 4 · Escáner · 5 · Scoring · 6 · OCR | Sin empezar |
 
-**Anda hoy:** los 3 workspaces compilan y testean (138 tests: 125 api, 2 web, 11 shared) ·
+**Anda hoy:** los 3 workspaces compilan y testean (306 tests: 293 api, 2 web, 11 shared) ·
 `GET /health` · `GET /api/book/:isbn13` con validación de ISBN, caché D1, cascada de 3
 fuentes, merge por campo y registro en `scan_events` · `POST /api/event` · D1 local migra ·
-la PWA muestra una pantalla.
+la PWA muestra una pantalla · `npm run spike` mide la cobertura de la Fase 1.
 
-**No existe:** todo `apps/api/src/llm/` · escáner · onboarding · `lib/scoring.ts` ·
-`POST /api/identify` · los scripts de `scripts/`.
+todo `apps/api/src/llm/` con 168 tests: sanitize (contra HTML real de Wikipedia ES),
+schema, prompts con 28 anclas, spoilerGuard, los 3 proveedores y el orquestador ·
+`npm run check:models`.
+
+**No existe:** escáner · onboarding · `lib/scoring.ts` · `POST /api/identify` ·
+`scripts/enrich-batch.ts` · `scripts/golden-set.ts`.
+
+### Fase 3 — dónde quedó
+
+**Hecho (puntos 1-6):** `llm/{types,sanitize,schema,prompts,spoilerGuard,enrich}.ts` y
+`llm/providers/{openai,workersai,fixture,index}.ts`. El adapter está entero y testeado,
+pero **nada lo llama todavía**: `GET /api/book/:isbn13` sigue devolviendo
+`enrichment: null` igual que en la Fase 2.
+
+**Falta (puntos 7 y 8):** conectar `enriquecer()` al cache miss del endpoint —con la
+carrera contra timeout y `waitUntil`, decidida ya—, la migración `0002`
+(`enrichment_upgrades` + columna `needs_review`), el upgrade perezoso a los 3 escaneos, y
+`scripts/enrich-batch.ts`.
+
+Dos decisiones tomadas que conviene no volver a discutir:
+
+- **La verificación del modelo no puede correr "al arrancar".** `workerd` prohíbe hacer
+  fetch en el scope global. Adentro del Worker es perezosa y memoizada por isolate
+  (`providers/index.ts`, `modeloUsable`), y loguea ruidoso sin tirar 500. El fallo duro
+  (`exit 1`) vive en `npm run check:models`, que corre antes de deployar.
+- **Un cache miss en vivo usa siempre la COLA.** Un libro que nadie escaneó todavía no
+  es cabeza, por definición. El modelo pago queda para `enrich-batch.ts` y para el
+  upgrade perezoso.
 
 ### ⚠️ El go/no-go de la Fase 1 sigue abierto
 
-Medido el 2026-08-05 sobre los 29 ISBN de `scripts/isbns.txt`: **50% con al menos una
-descripción de más de 200 caracteres**, debajo de la línea roja de 60% del PLAN.
+Medido con `npm run spike` el 2026-08-05 sobre los 30 ISBN de `scripts/isbns.txt`:
+**46,7% (14/30) con al menos una descripción de más de 200 caracteres**, debajo de la
+línea roja de 60% del PLAN. Detalle en `scripts/spike-results.json`.
 
-**El número todavía no es válido**: se midió **sin Google Books**, justo la fuente con
-mejor catálogo en español. `books.googleapis.com` devuelve 429 sin key
-(`quota_limit_value: 0`) — **`GOOGLE_BOOKS_KEY` no es opcional, es obligatoria.**
+**El número sigue sin ser válido, y ya no es por falta de key.** Las tres keys están
+cargadas en `.env` y `apps/api/.dev.vars`, pero **la Books API no está habilitada en el
+proyecto de Google Cloud** (`132510423534`): responde `403 API_KEY_SERVICE_BLOCKED` a
+todo. Google Books resolvió **0/30**. Como `sources/http.ts` traduce cualquier error a
+`null` por diseño, desde la cascada eso es indistinguible de "no conoce el libro".
 
-Antes de invertir en la Fase 3: cargar la key en `apps/api/.dev.vars` y `.env` →
-recapturar los fixtures de Google Books (hoy **reconstruidos, no capturados**, ver
-`apps/api/test/fixtures/sources/README.md`) → `LECTOR_LIVE=1 npm test -w @lector/api` →
-volver a medir. Detalle en `resolver/cascade.ts`.
+> **Cargar la key no alcanza.** Hay que habilitar la Books API en
+> `console.developers.google.com/apis/api/books.googleapis.com/overview` y, si la key
+> tiene restricción por API, incluir "Books API" en la lista.
+
+Cuando esté habilitada: `npm run spike` → recapturar los fixtures de Google Books (hoy
+**reconstruidos, no capturados**, ver `apps/api/test/fixtures/sources/README.md`) →
+`LECTOR_LIVE=1 npm test -w @lector/api` → anotar el número acá.
+
+**El dato que más preocupa, y que Google Books no arregla solo:** los 15 ISBN que no
+resuelven en *ninguna* fuente son casi enteros el grupo de editoriales independientes
+argentinas — justo el que PLAN.md marca como "el que te va a dar la respuesta real".
 
 ---
 
@@ -177,6 +213,11 @@ Todos desde la raíz del repo.
 | Tests en watch | `npm run test:watch -w @lector/api` |
 | Tests contra las APIs reales | `LECTOR_LIVE=1 npm test -w @lector/api` |
 | Migrar D1 local | `npm run db:migrate:local -w @lector/api` |
+| Spike de cobertura (Fase 1) | `npm run spike` |
+| **Verificar los model IDs — antes de cada deploy** | `npm run check:models` |
+
+Los scripts de `scripts/` son TypeScript y Node 20 no los corre solo: `npm run script -- <archivo.ts>`
+los bundlea con el `esbuild` que ya trae vite. Leen el `.env` de la raíz, no `.dev.vars`.
 
 Operativa completa, secrets, deploy y troubleshooting: **`RUNBOOK.md`**.
 
@@ -210,7 +251,8 @@ lector/
 │     ├─ resolver/             # cascade (orden + medición), merge (FIELD_PRIORITY)
 │     ├─ db/                   # books, events
 │     ├─ lib/isbn.ts
-│     └─ llm/                  # adapter, schema, prompts, sanitize, guard (Fase 3)
+│     └─ llm/                  # sanitize, schema, prompts, spoilerGuard, enrich
+│        └─ providers/         # openai, workersai, fixture, index (la fábrica)
 ├─ packages/shared/src/        # tipos + Zod compartidos
 └─ scripts/                    # spike-coverage, enrich-batch, golden-set
 ```
@@ -225,6 +267,9 @@ lector/
 | Bindings y env del Worker | `apps/api/src/env.ts` + `.env.example` |
 | Orden de la cascada y su medición | `apps/api/src/resolver/cascade.ts` |
 | Prioridad por campo del merge | `apps/api/src/resolver/merge.ts` (`FIELD_PRIORITY`) |
+| Secciones que se cortan antes del prompt | `apps/api/src/llm/sanitize.ts` (`SECCION_PROHIBIDA`) |
+| Patrones que rechazan una salida | `apps/api/src/llm/spoilerGuard.ts` (`PATRONES_SPOILER`) |
+| Las 28 anclas del appeal vector | `apps/api/src/llm/prompts.ts` (`ANCLAS`) |
 
 Si algo de esto cambia, se cambia **ahí**. Copiarlo acá garantiza que una de las dos
 copias quede vieja.

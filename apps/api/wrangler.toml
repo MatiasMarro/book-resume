@@ -10,12 +10,31 @@ compatibility_date = "2026-05-03"
 #
 # NUNCA poner API keys acá: son secrets (`wrangler secret put OPENAI_API_KEY`).
 # En local se leen de apps/api/.dev.vars, que está gitignoreado.
+#
+# Los DOS tramos arrancan en `fixture`: el default de desarrollo no puede pegarle
+# a ningún proveedor ni gastar neuronas (CLAUDE.md, "Áreas de atención"). En
+# producción, el bloque [env.production.vars] pone la cola en workersai con un
+# model ID real.
+#
+# Ojo: `LLM_MODEL_TAIL` vacío hace fallar la fábrica de proveedores a propósito.
+# El model ID va siempre por env y no hay default posible que no sea un
+# hardcodeo, que es justo lo que CLAUDE.md prohíbe.
 [vars]
 LLM_ENABLED = "true"
 LLM_PROVIDER = "fixture"
 LLM_MODEL = "gpt-5.6-luna"
-LLM_PROVIDER_TAIL = "workersai"
-LLM_MODEL_TAIL = ""
+LLM_PROVIDER_TAIL = "fixture"
+LLM_MODEL_TAIL = "gpt-5.6-luna"
+
+# Workers AI: el default de la cola larga en producción. 10.000 neuronas/día
+# gratis y sin API key, porque el binding es nativo.
+#
+# El binding corre inferencia pero NO lista modelos: para verificar que el model
+# ID configurado exista hace falta `npm run check:models` con CF_ACCOUNT_ID y
+# CF_API_TOKEN. Corrélo antes de cada deploy — los catálogos gratuitos
+# desaparecen sin aviso.
+[ai]
+binding = "AI"
 
 # `npm run db:create -w @lector/api` crea la base e imprime el database_id real.
 # Para `wrangler dev` local el placeholder alcanza: la DB vive en .wrangler/.

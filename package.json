@@ -18,6 +18,9 @@
     "dev:api": "npm run dev --workspace @lector/api --",
     "build": "npm run build --workspace @lector/web",
     "test": "npm run test --workspaces --if-present",
-    "typecheck": "npm run typecheck --workspaces --if-present"
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "script": "esbuild --bundle --platform=node --format=esm --target=node20 --log-level=warning --outdir=scripts/.build",
+    "spike": "npm run script -- scripts/spike-coverage.ts && node scripts/.build/spike-coverage.js",
+    "check:models": "npm run script -- scripts/check-models.ts && node scripts/.build/check-models.js"
   }
 }
