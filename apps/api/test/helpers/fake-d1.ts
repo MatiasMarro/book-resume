@@ -10,6 +10,7 @@ export type FakeRows = {
   books: Map<string, Record<string, unknown>>;
   enrichments: Map<string, Record<string, unknown>>;
   scanEvents: Record<string, unknown>[];
+  upgrades: Map<string, Record<string, unknown>>;
 };
 
 export function createFakeD1(seed: Partial<FakeRows> = {}) {
@@ -17,10 +18,19 @@ export function createFakeD1(seed: Partial<FakeRows> = {}) {
     books: seed.books ?? new Map(),
     enrichments: seed.enrichments ?? new Map(),
     scanEvents: seed.scanEvents ?? [],
+    upgrades: seed.upgrades ?? new Map(),
   };
 
   /** Contador por tipo de consulta, para verificar que la caché evita trabajo. */
-  const calls = { selectBook: 0, selectEnrichment: 0, upsertBook: 0, increment: 0, insertEvent: 0 };
+  const calls = {
+    selectBook: 0,
+    selectEnrichment: 0,
+    upsertBook: 0,
+    increment: 0,
+    insertEvent: 0,
+    saveEnrichment: 0,
+    encolarUpgrade: 0,
+  };
 
   const db = {
     prepare(sql: string) {
@@ -75,6 +85,58 @@ export function createFakeD1(seed: Partial<FakeRows> = {}) {
             return { success: true };
           }
 
+          if (sql.includes('INSERT INTO enrichments')) {
+            calls.saveEnrichment++;
+            const [
+              isbn13,
+              summary,
+              hook,
+              genres,
+              appeal_vector,
+              content_flags,
+              comparables,
+              confidence,
+              model_used,
+              prompt_tokens,
+              output_tokens,
+              needs_review,
+              scan_count,
+              created_at,
+            ] = statement._args;
+            const clave = String(isbn13);
+            const previa = rows.enrichments.get(clave);
+            rows.enrichments.set(clave, {
+              isbn13,
+              summary,
+              hook,
+              genres,
+              appeal_vector,
+              content_flags,
+              comparables,
+              confidence,
+              model_used,
+              prompt_tokens,
+              output_tokens,
+              needs_review,
+              // El UPSERT real deja `scan_count` afuera del DO UPDATE: un
+              // re-enriquecimiento no borra la demanda acumulada.
+              scan_count: previa ? previa.scan_count : scan_count,
+              created_at,
+            });
+            return { success: true };
+          }
+
+          if (sql.includes('INSERT OR IGNORE INTO enrichment_upgrades')) {
+            calls.encolarUpgrade++;
+            const [isbn13, reason, from_model, queued_at] = statement._args;
+            const clave = String(isbn13);
+            // OR IGNORE: el que ya está encolado no se pisa.
+            if (!rows.upgrades.has(clave)) {
+              rows.upgrades.set(clave, { isbn13, reason, from_model, queued_at, done_at: null });
+            }
+            return { success: true };
+          }
+
           if (sql.includes('UPDATE enrichments')) {
             calls.increment++;
             const key = String(statement._args[0]);
@@ -118,7 +180,7 @@ export function bookRow(isbn13: string, overrides: Record<string, unknown> = {})
   };
 }
 
-/** Fila de `enrichments`. La Fase 2 no la escribe, pero sí la lee. */
+/** Fila de `enrichments`. */
 export function enrichmentRow(isbn13: string, overrides: Record<string, unknown> = {}) {
   return {
     isbn13,
@@ -132,6 +194,7 @@ export function enrichmentRow(isbn13: string, overrides: Record<string, unknown>
     model_used: 'gpt-5.6-luna',
     prompt_tokens: 2500,
     output_tokens: 600,
+    needs_review: 0,
     scan_count: 0,
     created_at: 1_700_000_000_000,
     ...overrides,

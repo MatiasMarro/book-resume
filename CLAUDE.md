@@ -137,12 +137,13 @@ nada que requiera evadir bloqueos.
 | 0 · Andamiaje | Cerrada |
 | 1 · Spike de cobertura | **Parcial — go/no-go abierto, ver abajo** |
 | 2 · Resolución y caché | Cerrada |
-| 3 · Enriquecimiento LLM | **En curso — puntos 1-6 hechos, faltan 7 y 8** |
+| 3 · Enriquecimiento LLM | **En curso — puntos 1-7 hechos, falta el 8** |
 | 4 · Escáner · 5 · Scoring · 6 · OCR | Sin empezar |
 
-**Anda hoy:** los 3 workspaces compilan y testean (306 tests: 293 api, 2 web, 11 shared) ·
-`GET /health` · `GET /api/book/:isbn13` con validación de ISBN, caché D1, cascada de 3
-fuentes, merge por campo y registro en `scan_events` · `POST /api/event` · D1 local migra ·
+**Anda hoy:** los 3 workspaces compilan y testean (347 tests: 334 api, 2 web, 11 shared) ·
+`GET /health` · `GET /api/book/:isbn13` de punta a punta —validación de ISBN, caché D1,
+cascada de 3 fuentes, merge por campo, **enriquecimiento por LLM en cache miss**, upgrade
+perezoso y registro en `scan_events`— · `POST /api/event` · D1 local migra (0001 y 0002) ·
 la PWA muestra una pantalla · `npm run spike` mide la cobertura de la Fase 1.
 
 todo `apps/api/src/llm/` con 168 tests: sanitize (contra HTML real de Wikipedia ES),
@@ -154,17 +155,21 @@ schema, prompts con 28 anclas, spoilerGuard, los 3 proveedores y el orquestador 
 
 ### Fase 3 — dónde quedó
 
-**Hecho (puntos 1-6):** `llm/{types,sanitize,schema,prompts,spoilerGuard,enrich}.ts` y
-`llm/providers/{openai,workersai,fixture,index}.ts`. El adapter está entero y testeado,
-pero **nada lo llama todavía**: `GET /api/book/:isbn13` sigue devolviendo
-`enrichment: null` igual que en la Fase 2.
+**Hecho (puntos 1-7).** El adapter (`llm/{types,sanitize,schema,prompts,spoilerGuard,enrich}.ts`
+y `llm/providers/{openai,workersai,fixture,index}.ts`) y su conexión al endpoint:
+`lib/enriquecerEnVivo.ts` (la carrera), `lib/segundoPlano.ts` (`waitUntil`),
+`db/upgrades.ts` (la cola) y la migración `0002`.
 
-**Falta (puntos 7 y 8):** conectar `enriquecer()` al cache miss del endpoint —con la
-carrera contra timeout y `waitUntil`, decidida ya—, la migración `0002`
-(`enrichment_upgrades` + columna `needs_review`), el upgrade perezoso a los 3 escaneos, y
-`scripts/enrich-batch.ts`.
+Verificado a mano el 2026-08-05 contra el Worker local con `LLM_PROVIDER_TAIL=fixture`:
+cache miss de un ISBN nuevo → `meta.enrichment: 'listo'` en 2,2 s, `confidence` 0.08
+(= 0.1 × la penalización de cola), la ficha guardada; al tercer cache hit aparece la fila
+en `enrichment_upgrades` con `reason: 'scan-count'`.
 
-Dos decisiones tomadas que conviene no volver a discutir:
+**Falta (punto 8):** `scripts/enrich-batch.ts`. Hasta que exista, **la cola de
+`enrichment_upgrades` se llena y nadie la drena**, y los libros que quedaron en `books`
+desde la Fase 2 siguen sin ficha.
+
+Cuatro decisiones tomadas que conviene no volver a discutir:
 
 - **La verificación del modelo no puede correr "al arrancar".** `workerd` prohíbe hacer
   fetch en el scope global. Adentro del Worker es perezosa y memoizada por isolate
@@ -173,6 +178,15 @@ Dos decisiones tomadas que conviene no volver a discutir:
 - **Un cache miss en vivo usa siempre la COLA.** Un libro que nadie escaneó todavía no
   es cabeza, por definición. El modelo pago queda para `enrich-batch.ts` y para el
   upgrade perezoso.
+- **El presupuesto de la carrera es de 6 s, y sí, se pasa de los 5 s del objetivo.**
+  Aceptado: el caso es el 5% del tráfico y a cambio un modelo rápido a veces llega. Cuando
+  no llega, el `waitUntil` deja la ficha lista para el escaneo siguiente — el primero que
+  escanea un libro paga la espera por todos los demás. El `saveEnrichment` va **adentro**
+  de la promesa que corre la carrera: si viviera afuera, un timeout tiraría una llamada ya
+  pagada.
+- **Un libro cacheado sin ficha NO se reintenta.** Si se reintentara, un libro sin
+  descripciones —del que el modelo nunca va a sacar nada— gastaría una llamada por
+  escaneo, para siempre. Un intento por libro; el resto es trabajo de `enrich-batch.ts`.
 
 ### ⚠️ El go/no-go de la Fase 1 sigue abierto
 
@@ -208,7 +222,7 @@ Todos desde la raíz del repo.
 |---|---|
 | **Semáforo — antes de cerrar cualquier tarea** | `npm test && npm run typecheck && npm run build` |
 | Dev PWA (`:5173`) | `npm run dev:web` |
-| Dev Worker (`:8787`) | `npm run dev:api` |
+| Dev Worker (`:8787`) | `npm run dev:api -- --local` (sin `--local` pide `wrangler login`) |
 | Tests de un workspace | `npm test -w @lector/api` (o `@lector/web`, `@lector/shared`) |
 | Tests en watch | `npm run test:watch -w @lector/api` |
 | Tests contra las APIs reales | `LECTOR_LIVE=1 npm test -w @lector/api` |
@@ -249,8 +263,8 @@ lector/
 │     ├─ routes/               # health, book, event
 │     ├─ sources/              # openlibrary, googlebooks, wikipedia, http, types
 │     ├─ resolver/             # cascade (orden + medición), merge (FIELD_PRIORITY)
-│     ├─ db/                   # books, events
-│     ├─ lib/isbn.ts
+│     ├─ db/                   # books, events, upgrades (la cola del upgrade)
+│     ├─ lib/                  # isbn, enriquecerEnVivo (la carrera), segundoPlano
 │     └─ llm/                  # sanitize, schema, prompts, spoilerGuard, enrich
 │        └─ providers/         # openai, workersai, fixture, index (la fábrica)
 ├─ packages/shared/src/        # tipos + Zod compartidos
@@ -279,11 +293,17 @@ copias quede vieja.
 ## Contrato de la API
 
 ```
-GET  /api/book/:isbn13   → { book, enrichment, source: 'cache'|'fresh', meta? }
+GET  /api/book/:isbn13   → { book, enrichment, source: 'cache'|'fresh', meta }
                            400 ISBN inválido · 404 no resuelto en ninguna fuente
 POST /api/identify       → { candidates: [...] }   body: { title?, author?, ocrText? }
 POST /api/event          → registro anónimo de escaneo
 ```
+
+`meta.enrichment` dice qué pasó con la ficha, y la UI necesita los cinco:
+`listo` · `pendiente` (perdió la carrera, sigue en `waitUntil`: el próximo escaneo la
+tiene) · `ausente` (cacheado sin ficha, no se reintenta) · `apagado` (`LLM_ENABLED=false`)
+· `fallo`. Sin esto no se puede distinguir "este libro no tiene resumen" de "el resumen
+está saliendo", que son dos mensajes muy distintos parado en el pasillo.
 
 El cliente calcula el score. **El servidor nunca ve el perfil del usuario.**
 

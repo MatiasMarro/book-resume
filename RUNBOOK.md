@@ -91,8 +91,20 @@ Abrí **http://localhost:5173** → pantalla negra con "Lector" centrado.
 En **otra terminal** (el paso 3 bloquea la suya):
 
 ```bash
-npm run dev:api
+npm run dev:api -- --local
 ```
+
+> ⚠️ **El `--local` no es opcional en una máquina sin `wrangler login`.** El binding
+> `[ai]` de `wrangler.toml` arranca en modo `remote`, así que `npm run dev:api` a secas
+> intenta abrir una sesión con Cloudflare y muere con:
+>
+> ```
+> ERROR  Failed to start the remote proxy session
+> You must be logged in to use wrangler dev in remote mode.
+> ```
+>
+> Con `--local` levanta en un segundo. Lo único que perdés es Workers AI, y en desarrollo
+> el proveedor es `fixture` de todas formas.
 
 Escucha en **http://localhost:8787**. Probalo:
 
@@ -231,7 +243,7 @@ son secrets de wrangler (paso 9).
 npm run dev:web
 
 # terminal 2
-npm run dev:api
+npm run dev:api -- --local
 
 # terminal 3 — tests en watch del workspace que estés tocando
 npm run test:watch -w @lector/web
@@ -289,7 +301,7 @@ npx wrangler deploy --dry-run
 | Qué | Comando |
 |---|---|
 | Dev PWA | `npm run dev:web` |
-| Dev Worker | `npm run dev:api` |
+| Dev Worker | `npm run dev:api -- --local` |
 | Tests (todos) | `npm test` |
 | Tests de uno | `npm test -w @lector/web` (o `@lector/api`, `@lector/shared`) |
 | Tests en watch | `npm run test:watch -w @lector/web` |

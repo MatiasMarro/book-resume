@@ -24,6 +24,11 @@ export const EnrichmentSchema = z.object({
   /** Para auditar gasto real contra el estimado. */
   promptTokens: z.number().int().nonnegative().optional(),
   outputTokens: z.number().int().nonnegative().optional(),
+  /**
+   * El spoiler guard saltó dos veces seguidas: la ficha se guardó igual —una
+   * pantalla vacía es peor— pero hay que mirarla. También encola el upgrade.
+   */
+  needsReview: z.boolean().default(false),
   /** A los 3 escaneos se encola el upgrade perezoso al modelo pago. */
   scanCount: z.number().int().nonnegative().default(0),
   /** Epoch en milisegundos. */

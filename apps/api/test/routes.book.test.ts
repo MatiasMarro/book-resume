@@ -1,15 +1,48 @@
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import app from '../src/index';
 import { bookRow, createFakeD1, enrichmentRow } from './helpers/fake-d1';
 import * as cascade from '../src/resolver/cascade';
+import type { MergedBook } from '../src/resolver/merge';
+import { resetVerificaciones } from '../src/llm/providers/index';
 
 const ISBN = '9788420471839';
 
+beforeEach(() => resetVerificaciones());
 afterEach(() => vi.restoreAllMocks());
 
-function env(fake: ReturnType<typeof createFakeD1>) {
-  return { DB: fake.db, LLM_ENABLED: 'false' } as never;
+/**
+ * El kill switch apagado es el default de estos tests: la mayoría no tiene nada
+ * que ver con el LLM y no hay por qué hacerlos pasar por el adapter.
+ */
+function env(fake: ReturnType<typeof createFakeD1>, overrides: Record<string, string> = {}) {
+  return { DB: fake.db, LLM_ENABLED: 'false', ...overrides } as never;
 }
+
+/** Env con el proveedor fixture en los dos tramos: enriquece sin salir a la red. */
+function envConLlm(fake: ReturnType<typeof createFakeD1>, overrides: Record<string, string> = {}) {
+  return env(fake, {
+    LLM_ENABLED: 'true',
+    LLM_PROVIDER: 'fixture',
+    LLM_MODEL: 'modelo-cabeza',
+    LLM_PROVIDER_TAIL: 'fixture',
+    LLM_MODEL_TAIL: 'modelo-cola',
+    ...overrides,
+  });
+}
+
+const RESUELTO: MergedBook = {
+  book: {
+    isbn13: ISBN,
+    title: 'Cien años de soledad',
+    authors: ['Gabriel García Márquez'],
+    pageCount: 609,
+    fetchedAt: 1_700_000_000_000,
+  },
+  provenance: { title: 'openlibrary' },
+  descriptions: [{ source: 'openlibrary', text: 'Una descripción larga.' }],
+  subjects: ['magic realism'],
+  sourcesHit: ['openlibrary'],
+};
 
 describe('GET /api/book/:isbn13 — validación', () => {
   it('400 con checksum roto, sin tocar la red ni la base', async () => {
@@ -110,28 +143,16 @@ describe('GET /api/book/:isbn13 — cache hit', () => {
 });
 
 describe('GET /api/book/:isbn13 — cache miss', () => {
-  it('corre la cascada, guarda y devuelve source:fresh con enrichment null', async () => {
+  it('corre la cascada, guarda y devuelve source:fresh', async () => {
     const fake = createFakeD1();
-    vi.spyOn(cascade, 'resolveByIsbn').mockResolvedValue({
-      book: {
-        isbn13: ISBN,
-        title: 'Cien años de soledad',
-        authors: ['Gabriel García Márquez'],
-        pageCount: 609,
-        fetchedAt: 1_700_000_000_000,
-      },
-      provenance: { title: 'openlibrary' },
-      descriptions: [{ source: 'openlibrary', text: 'Una descripción larga.' }],
-      subjects: ['magic realism'],
-      sourcesHit: ['openlibrary'],
-    });
+    vi.spyOn(cascade, 'resolveByIsbn').mockResolvedValue(RESUELTO);
 
     const res = await app.request(`/api/book/${ISBN}`, {}, env(fake));
     const body = (await res.json()) as { source: string; enrichment: null };
 
     expect(res.status).toBe(200);
     expect(body.source).toBe('fresh');
-    // La Fase 2 no llama al LLM: la ficha sale con metadata cruda.
+    // Con el kill switch apagado la ficha sale con metadata cruda.
     expect(body.enrichment).toBeNull();
     expect(fake.rows.books.has(ISBN)).toBe(true);
   });
@@ -173,6 +194,136 @@ describe('GET /api/book/:isbn13 — cache miss', () => {
 
     expect(body.meta.sourcesHit).toEqual(['openlibrary', 'googlebooks']);
     expect(body.meta.descriptions).toEqual([{ source: 'googlebooks', length: 5 }]);
+  });
+});
+
+describe('GET /api/book/:isbn13 — enriquecimiento en cache miss', () => {
+  it('enriquece y devuelve la ficha completa', async () => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const fake = createFakeD1();
+    vi.spyOn(cascade, 'resolveByIsbn').mockResolvedValue(RESUELTO);
+
+    const res = await app.request(`/api/book/${ISBN}`, {}, envConLlm(fake));
+    const body = (await res.json()) as {
+      enrichment: { summary: string; modelUsed: string } | null;
+      meta: { enrichment: string };
+    };
+
+    expect(body.meta.enrichment).toBe('listo');
+    expect(body.enrichment?.summary).toBeTruthy();
+    // Un cache miss es cola por definición: nadie escaneó este libro todavía.
+    expect(body.enrichment?.modelUsed).toBe('fixture:modelo-cola');
+  });
+
+  it('deja la ficha guardada para el próximo escaneo', async () => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const fake = createFakeD1();
+    vi.spyOn(cascade, 'resolveByIsbn').mockResolvedValue(RESUELTO);
+
+    await app.request(`/api/book/${ISBN}`, {}, envConLlm(fake));
+    const segunda = await app.request(`/api/book/${ISBN}`, {}, envConLlm(fake));
+    const body = (await segunda.json()) as { source: string; enrichment: { summary: string } };
+
+    expect(body.source).toBe('cache');
+    expect(body.enrichment.summary).toBeTruthy();
+    // La segunda pasada no vuelve a enriquecer: una llamada por libro (regla 2).
+    expect(fake.calls.saveEnrichment).toBe(1);
+  });
+
+  it('con el kill switch apagado informa apagado, no fallo', async () => {
+    const fake = createFakeD1();
+    vi.spyOn(cascade, 'resolveByIsbn').mockResolvedValue(RESUELTO);
+
+    const res = await app.request(`/api/book/${ISBN}`, {}, env(fake));
+    const body = (await res.json()) as { meta: { enrichment: string } };
+
+    expect(body.meta.enrichment).toBe('apagado');
+    expect(fake.calls.saveEnrichment).toBe(0);
+  });
+
+  it('NO reintenta un libro ya cacheado sin ficha: una llamada por libro', async () => {
+    // Un libro sin descripciones nunca va a dar ficha. Reintentarlo en cada
+    // escaneo gastaría una llamada por siempre — justo lo que la regla 2 prohíbe.
+    const fake = createFakeD1({ books: new Map([[ISBN, bookRow(ISBN)]]) });
+
+    const res = await app.request(`/api/book/${ISBN}`, {}, envConLlm(fake));
+    const body = (await res.json()) as { meta: { enrichment: string } };
+
+    expect(body.meta.enrichment).toBe('ausente');
+    expect(fake.calls.saveEnrichment).toBe(0);
+  });
+
+  it('el latency_ms del evento no incluye la espera del modelo', async () => {
+    // Es la métrica de cobertura de la Fase 1 llevada a producción: tiene que
+    // seguir midiendo cuánto tarda RESOLVER un libro.
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const fake = createFakeD1();
+    vi.spyOn(cascade, 'resolveByIsbn').mockResolvedValue(RESUELTO);
+
+    await app.request(`/api/book/${ISBN}`, {}, envConLlm(fake));
+
+    expect(fake.rows.scanEvents).toHaveLength(1);
+    expect(fake.calls.saveEnrichment).toBe(1);
+    // El evento se escribió antes del enriquecimiento.
+    expect(fake.rows.scanEvents[0]!.latency_ms).toBeLessThan(1_000);
+  });
+});
+
+describe('GET /api/book/:isbn13 — upgrade perezoso', () => {
+  const COLA = 'fixture:modelo-cola';
+
+  function conFicha(scanCount: number, overrides: Record<string, unknown> = {}) {
+    return createFakeD1({
+      books: new Map([[ISBN, bookRow(ISBN)]]),
+      enrichments: new Map([
+        [ISBN, enrichmentRow(ISBN, { model_used: COLA, scan_count: scanCount, ...overrides })],
+      ]),
+    });
+  }
+
+  it('encola al tercer escaneo', async () => {
+    const fake = conFicha(2);
+
+    await app.request(`/api/book/${ISBN}`, {}, envConLlm(fake));
+
+    expect(fake.rows.upgrades.get(ISBN)).toMatchObject({
+      isbn13: ISBN,
+      reason: 'scan-count',
+      from_model: COLA,
+    });
+  });
+
+  it('no encola en el segundo', async () => {
+    const fake = conFicha(1);
+
+    await app.request(`/api/book/${ISBN}`, {}, envConLlm(fake));
+
+    expect(fake.rows.upgrades.size).toBe(0);
+  });
+
+  it('no encola una ficha que ya es de la cabeza', async () => {
+    const fake = conFicha(9, { model_used: 'modelo-cabeza' });
+
+    await app.request(`/api/book/${ISBN}`, {}, envConLlm(fake));
+
+    expect(fake.rows.upgrades.size).toBe(0);
+  });
+
+  it('encola una ficha marcada para revisión desde el primer escaneo', async () => {
+    const fake = conFicha(0, { needs_review: 1 });
+
+    await app.request(`/api/book/${ISBN}`, {}, envConLlm(fake));
+
+    expect(fake.rows.upgrades.get(ISBN)).toMatchObject({ reason: 'needs-review' });
+  });
+
+  it('encolar no dispara ninguna llamada al modelo', async () => {
+    // El drenaje es trabajo de enrich-batch: un cache hit responde en <100ms.
+    const fake = conFicha(2);
+
+    await app.request(`/api/book/${ISBN}`, {}, envConLlm(fake));
+
+    expect(fake.calls.saveEnrichment).toBe(0);
   });
 });
 

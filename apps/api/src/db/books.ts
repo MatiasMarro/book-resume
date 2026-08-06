@@ -34,6 +34,7 @@ type EnrichmentRow = {
   model_used: string;
   prompt_tokens: number | null;
   output_tokens: number | null;
+  needs_review: number;
   scan_count: number;
   created_at: number;
 };
@@ -76,6 +77,9 @@ export function rowToEnrichment(row: EnrichmentRow): Enrichment {
     contentFlags: parseJson<Enrichment['contentFlags']>(row.content_flags, []),
     confidence: row.confidence,
     modelUsed: row.model_used,
+    // SQLite no tiene booleanos. Las filas anteriores a la migración 0002 leen
+    // el DEFAULT 0, así que `undefined` acá también es "no hay que revisarla".
+    needsReview: row.needs_review === 1,
     scanCount: row.scan_count,
     createdAt: row.created_at,
     ...(row.comparables !== null && {
@@ -149,8 +153,57 @@ export async function upsertBook(db: D1Database, book: Book): Promise<void> {
 }
 
 /**
+ * Guarda (o pisa) el enriquecimiento de un libro.
+ *
+ * `scan_count` **no se pisa en el UPDATE**, y esa es toda la gracia: cuando el
+ * upgrade perezoso re-enriquece un libro con el modelo de la cabeza, la demanda
+ * acumulada que justificó el upgrade tiene que sobrevivir. Resetearla a 0 haría
+ * que el libro más escaneado del catálogo pareciera recién nacido.
+ */
+export async function saveEnrichment(db: D1Database, enrichment: Enrichment): Promise<void> {
+  await db
+    .prepare(
+      `INSERT INTO enrichments (
+         isbn13, summary, hook, genres, appeal_vector, content_flags, comparables,
+         confidence, model_used, prompt_tokens, output_tokens, needs_review,
+         scan_count, created_at
+       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+       ON CONFLICT(isbn13) DO UPDATE SET
+         summary = excluded.summary,
+         hook = excluded.hook,
+         genres = excluded.genres,
+         appeal_vector = excluded.appeal_vector,
+         content_flags = excluded.content_flags,
+         comparables = excluded.comparables,
+         confidence = excluded.confidence,
+         model_used = excluded.model_used,
+         prompt_tokens = excluded.prompt_tokens,
+         output_tokens = excluded.output_tokens,
+         needs_review = excluded.needs_review,
+         created_at = excluded.created_at`
+    )
+    .bind(
+      enrichment.isbn13,
+      enrichment.summary,
+      enrichment.hook,
+      JSON.stringify(enrichment.genres),
+      JSON.stringify(enrichment.appealVector),
+      JSON.stringify(enrichment.contentFlags),
+      enrichment.comparables === undefined ? null : JSON.stringify(enrichment.comparables),
+      enrichment.confidence,
+      enrichment.modelUsed,
+      enrichment.promptTokens ?? null,
+      enrichment.outputTokens ?? null,
+      enrichment.needsReview ? 1 : 0,
+      enrichment.scanCount,
+      enrichment.createdAt
+    )
+    .run();
+}
+
+/**
  * Suma uno a `scan_count`. A los 3 se dispara el upgrade perezoso al modelo de
- * la cabeza — eso lo implementa la Fase 3; acá solo se lleva la cuenta.
+ * la cabeza — el disparador vive en `db/upgrades.ts`; acá solo se lleva la cuenta.
  */
 export async function incrementScanCount(db: D1Database, isbn13: string): Promise<void> {
   await db
